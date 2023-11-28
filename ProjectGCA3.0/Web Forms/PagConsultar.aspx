@@ -59,7 +59,6 @@
         <telerik:RadGrid ID="GridMaquinas" runat="server" AutoGenerateColumns="false" OnNeedDataSource="GridMaquinas_NeedDataSource" OnItemCommand="GridMaquinas_ItemCommand">
             <GroupingSettings CollapseAllTooltip="collaps all columns" />
             <MasterTableView DataKeyNames="ID_Maquina">
-                <%--INSERIR DATAKEYNAMES--%>
                 <Columns>
                     <telerik:GridTemplateColumn UniqueName="OP" AllowFiltering="false">
                         <ItemTemplate>
@@ -77,10 +76,9 @@
     </asp:Panel>
 
     <asp:Panel ID="PnlChaves" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
-        <telerik:RadGrid ID="GridChaves" runat="server" AutoGenerateColumns="false">
+        <telerik:RadGrid ID="GridChaves" runat="server" AutoGenerateColumns="false" OnNeedDataSource="GridChaves_NeedDataSource" OnItemCommand="GridChaves_ItemCommand">
             <GroupingSettings CollapseAllTooltip="collaps all columns" />
             <MasterTableView DataKeyNames="ID_ChaveAtivacao">
-                <%--INSERIR DATAKEYNAMES--%>
                 <Columns>
                     <telerik:GridTemplateColumn UniqueName="OP" AllowFiltering="false">
                         <ItemTemplate>
@@ -89,8 +87,12 @@
                             <asp:Button ID="btexcluir" runat="server" Text="excluir" CommandName="opExcluir" />
                         </ItemTemplate>
                     </telerik:GridTemplateColumn>
-                    <telerik:GridBoundColumn UniqueName="col_NomeSoftware" DataField="" HeaderText="Usuário"></telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn UniqueName="col_ChaveAtivacao" DataField="" HeaderText="Usuário"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_CodChaveAtivacao" DataField="ID_ChaveAtivacao" HeaderText="COD"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_NomeSoftware" DataField="NomeSoftware" HeaderText="Nome do Software"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_Fabricante" DataField="Fabricante" HeaderText="Fabricante"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_TipoLicenca" DataField="TipoLicenca" HeaderText="Tipo de Licenca"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_PrazoLicenca" DataField="PrazoLicenca" HeaderText="Prazo de Licenca"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_ChaveAtivacao" DataField="ChaveAtivacao" HeaderText="Chave de Ativação"></telerik:GridBoundColumn>
                 </Columns>
             </MasterTableView>
         </telerik:RadGrid>
