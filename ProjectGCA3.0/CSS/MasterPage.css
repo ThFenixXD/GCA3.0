@@ -1,0 +1,56 @@
+﻿html, body, form {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    background-color: #4F78C4;
+
+}
+
+
+.menu-lateral{
+    background-color: red;
+}
+
+.menu-lateral ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+    .menu-lateral ul li {
+        font-size: 24px;
+        list-style: none;
+    }
+
+        .menu-lateral ul li a {
+            width: 100%;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            color: white;
+            padding: 6% 0;
+            border-top: .5px solid white;
+            transition: .30s;
+        }
+
+            .menu-lateral ul li a:hover {
+                background-color: #4F78C4;
+                color: coral;
+            }
+
+            .menu-lateral ul li a.last__menu-item {
+                border-bottom: .5px solid white;
+            }
+
+            .menu-lateral ul li a .icon {
+                margin-left: 6%;
+            }
+
+            .menu-lateral ul li a .txt-link {
+                font-size: 20px;
+                margin-left: 16px;
+            }
