@@ -51,7 +51,7 @@
             <div class="DivTextBlock row d-flex m-auto gap-2">
                 <div class="row">
                     <asp:Label ID="lbNomeUsuario" CssClass="lbTextBlock col-4 col-md-4 col-sm-4" runat="server" Text="Nome do Usuário"></asp:Label>
-                    <asp:TextBox ID="txtNomeUsuario" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtNomeUsuario" CssClass="txtTextBlock col-8 col-md-8 col-sm-8" runat="server"></asp:TextBox>
                 </div>
                 <div class="row">
                     <asp:Label ID="lbFuncao" CssClass="lbTextBlock col-4 col-md-4 col-sm-4" runat="server" Text="Função"></asp:Label>
@@ -61,10 +61,11 @@
                     <asp:Label ID="lbSetorUsuario" CssClass="lbTextBlock col-4 col-md-4 col-sm-4" runat="server" Text="Setor"></asp:Label>
                     <asp:DropDownList ID="ddlSetor" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:DropDownList>
                 </div>
-            </div>
-            <div class="col-12 col-md-12 col-sm-12">
-                <button id="btnSalvarUsuario" class="btn" runat="server" text="Salvar"></button>
-                <button id="btnCancelarUsuario" class="btn" runat="server" text="Cancelar"></button>
+                <div class="row p-0 m-0 gap-3">
+                    <div class="col-7 col-md-7 col-sm-7"></div>
+                    <asp:Button CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar"/>
+                    <asp:Button CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar"/>
+                </div>
             </div>
         </section>
     </asp:Panel>
@@ -76,16 +77,17 @@
             </div>
             <div class="DivTextBlock row d-flex m-auto gap-2">
                 <div class="row">
-                    <asp:Label ID="lbNomeMaquina" CssClass="lbTextBlock col-4 col-md-4 col-sm-4" runat="server" Text="Nome da Máquina"></asp:Label>
-                    <asp:TextBox ID="txtNomeMaquina" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:TextBox>
+                    <asp:Label ID="lbNomeMaquina" CssClass="lbTextBlock col-4 col-md-4 col-sm-4 p-0" runat="server" Text="Nome da Máquina"></asp:Label>
+                    <asp:TextBox ID="txtNomeMaquina" CssClass="col-8 col-md-8 col-sm-8 p-0" runat="server"></asp:TextBox>
                 </div>
                 <div class="row">
-                    <asp:Label ID="Label4" CssClass="lbTextBlock col-4 col-md-4 col-sm-4" runat="server" Text="Setor"></asp:Label>
-                    <asp:DropDownList ID="DropDownList1" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:DropDownList>
+                    <asp:Label ID="lbSetorMaquina" CssClass="lbTextBlock col-4 col-md-4 col-sm-4" runat="server" Text="Setor"></asp:Label>
+                    <asp:DropDownList ID="DdlSetorMaquina" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:DropDownList>
                 </div>
-                <div class="col-12 col-md-12 col-sm-12">
-                    <button id="btnSalvarMaquina" class="btn" runat="server" text="Salvar"></button>
-                    <button id="btnCancelarMaquina" class="btn" runat="server" text="Cancelar"></button>
+                <div class="row p-0 m-0 gap-3 justify-content-end">
+                    <div class="col-7 col-md-7 col-sm-7"></div>
+                    <asp:Button CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar"/>
+                    <asp:Button CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar"/>
                 </div>
             </div>
         </section>
@@ -101,9 +103,10 @@
                     <asp:Label ID="lbSetor" CssClass="lbTextBlock col-4 col-md-4 col-sm-4" runat="server" Text="Nome do Setor"></asp:Label>
                     <asp:TextBox ID="txtSetor" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:TextBox>
                 </div>
-                <div class="col-12 col-md-12 col-sm-12">
-                    <button id="btnSakvarSetir" class="btn" runat="server" text="Salvar"></button>
-                    <button id="btnCancelarSetor" class="btn" runat="server" text="Cancelar"></button>
+                <div class="row p-0 m-0 gap-3 justify-content-end">
+                    <div class="col-7 col-md-7 col-sm-7"></div>
+                    <asp:Button CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar"/>
+                    <asp:Button CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar"/>
                 </div>
             </div>
         </section>
@@ -135,9 +138,10 @@
                     <asp:Label ID="lbChaveAtivacao" CssClass="lbTextBlock col-4 col-md-4 col-sm-4 p-0" runat="server" Text="Chave de Ativação"></asp:Label>
                     <asp:TextBox ID="txtChaveAtivacao" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:TextBox>
                 </div>
-                <div class="col-12 col-md-12 col-sm-12">
-                    <button id="btnSalvarChaveAtivacao" class="btn" runat="server" text="Salvar"></button>
-                    <button id="btnCancelarChaveAtivacao" class="btn" runat="server" text="Cancelar"></button>
+                <div class="row p-0 m-0 gap-3 justify-content-end">
+                    <div class="col-7 col-md-7 col-sm-7"></div>
+                    <asp:Button CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar"/>
+                    <asp:Button CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar"/>
                 </div>
             </div>
         </section>
@@ -153,9 +157,10 @@
                     <asp:Label ID="lbTipoLicanca" CssClass="lbTextBlock col-4 col-md-4 col-sm-4" runat="server" Text="Tipo de Licença"></asp:Label>
                     <asp:TextBox ID="txtTipoLicenca" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:TextBox>
                 </div>
-                <div class="col-12 col-md-12 col-sm-12">
-                    <button id="btnSalvarTipoLicenca" class="btn" runat="server" text="Salvar"></button>
-                    <button id="btnCancelarTipoLicenca" class="btn" runat="server" text="Cancelar"></button>
+                <div class="row p-0 m-0 gap-3 justify-content-end">
+                    <div class="col-7 col-md-7 col-sm-7"></div>
+                    <asp:Button CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar"/>
+                    <asp:Button CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar"/>
                 </div>
             </div>
         </section>

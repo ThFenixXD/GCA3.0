@@ -148,24 +148,6 @@ namespace ProjectGCA3._0.Web_Forms {
         protected global::System.Web.UI.WebControls.DropDownList ddlSetor;
         
         /// <summary>
-        /// btnSalvarUsuario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnSalvarUsuario;
-        
-        /// <summary>
-        /// btnCancelarUsuario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnCancelarUsuario;
-        
-        /// <summary>
         /// PnlCadastroMaquina control.
         /// </summary>
         /// <remarks>
@@ -202,40 +184,22 @@ namespace ProjectGCA3._0.Web_Forms {
         protected global::System.Web.UI.WebControls.TextBox txtNomeMaquina;
         
         /// <summary>
-        /// Label4 control.
+        /// lbSetorMaquina control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label lbSetorMaquina;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// DdlSetorMaquina control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
-        
-        /// <summary>
-        /// btnSalvarMaquina control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnSalvarMaquina;
-        
-        /// <summary>
-        /// btnCancelarMaquina control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnCancelarMaquina;
+        protected global::System.Web.UI.WebControls.DropDownList DdlSetorMaquina;
         
         /// <summary>
         /// PnlCadastroSetor control.
@@ -272,24 +236,6 @@ namespace ProjectGCA3._0.Web_Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSetor;
-        
-        /// <summary>
-        /// btnSakvarSetir control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnSakvarSetir;
-        
-        /// <summary>
-        /// btnCancelarSetor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnCancelarSetor;
         
         /// <summary>
         /// PnlCadastroChaveAtivacao control.
@@ -400,24 +346,6 @@ namespace ProjectGCA3._0.Web_Forms {
         protected global::System.Web.UI.WebControls.TextBox txtChaveAtivacao;
         
         /// <summary>
-        /// btnSalvarChaveAtivacao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnSalvarChaveAtivacao;
-        
-        /// <summary>
-        /// btnCancelarChaveAtivacao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnCancelarChaveAtivacao;
-        
-        /// <summary>
         /// PnlCadastroTipoLicenca control.
         /// </summary>
         /// <remarks>
@@ -452,23 +380,5 @@ namespace ProjectGCA3._0.Web_Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTipoLicenca;
-        
-        /// <summary>
-        /// btnSalvarTipoLicenca control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnSalvarTipoLicenca;
-        
-        /// <summary>
-        /// btnCancelarTipoLicenca control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnCancelarTipoLicenca;
     }
 }

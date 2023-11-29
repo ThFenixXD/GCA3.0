@@ -121,6 +121,9 @@
     <Compile Include="tb_Maquinas.cs">
       <DependentUpon>ProjectGCAModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="tb_Relacionamento.cs">
+      <DependentUpon>ProjectGCAModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="tb_Setores.cs">
       <DependentUpon>ProjectGCAModel.tt</DependentUpon>
     </Compile>

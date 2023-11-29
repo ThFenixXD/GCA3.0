@@ -33,6 +33,18 @@
           <Property Name="Status" Type="int" />
           <Property Name="Deleted" Type="int" />
         </EntityType>
+        <EntityType Name="tb_Relacionamento">
+          <Key>
+            <PropertyRef Name="ID_UsuarioRelacionar" />
+          </Key>
+          <Property Name="ID_UsuarioRelacionar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario" Type="nvarchar" MaxLength="50" />
+          <Property Name="Maquina" Type="nvarchar" MaxLength="50" />
+          <Property Name="ChaveAtivacao" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_Usuario" Type="int" />
+          <Property Name="ID_Maquina" Type="int" />
+          <Property Name="ID_ChaveAtivacao" Type="int" />
+        </EntityType>
         <EntityType Name="tb_Setores">
           <Key>
             <PropertyRef Name="ID_Setor" />
@@ -69,6 +81,7 @@
         <EntityContainer Name="ProjectGCAStoreContainer">
           <EntitySet Name="tb_Chaves" EntityType="Self.tb_Chaves" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Maquinas" EntityType="Self.tb_Maquinas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Relacionamento" EntityType="Self.tb_Relacionamento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Setores" EntityType="Self.tb_Setores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_TipoLicenca" EntityType="Self.tb_TipoLicenca" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Usuarios" EntityType="Self.tb_Usuarios" Schema="dbo" store:Type="Tables" />
@@ -83,6 +96,7 @@
           <EntitySet Name="tb_Setores" EntityType="ProjectGCA.tb_Setores" />
           <EntitySet Name="tb_TipoLicenca" EntityType="ProjectGCA.tb_TipoLicenca" />
           <EntitySet Name="tb_Usuarios" EntityType="ProjectGCA.tb_Usuarios" />
+          <EntitySet Name="tb_Relacionamento" EntityType="ProjectGCA.tb_Relacionamento" />
         </EntityContainer>
         <EntityType Name="tb_Chaves">
           <Key>
@@ -144,6 +158,18 @@
           <Property Name="ID_Chave" Type="Int32" />
           <Property Name="Status" Type="Int32" />
           <Property Name="Deleted" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_Relacionamento">
+          <Key>
+            <PropertyRef Name="ID_UsuarioRelacionar" />
+          </Key>
+          <Property Name="ID_UsuarioRelacionar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Maquina" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ChaveAtivacao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Usuario" Type="Int32" />
+          <Property Name="ID_Maquina" Type="Int32" />
+          <Property Name="ID_ChaveAtivacao" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -214,6 +240,19 @@
                 <ScalarProperty Name="FuncaoUsuario" ColumnName="FuncaoUsuario" />
                 <ScalarProperty Name="NomeUsuario" ColumnName="NomeUsuario" />
                 <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Relacionamento">
+            <EntityTypeMapping TypeName="ProjectGCA.tb_Relacionamento">
+              <MappingFragment StoreEntitySet="tb_Relacionamento">
+                <ScalarProperty Name="ID_ChaveAtivacao" ColumnName="ID_ChaveAtivacao" />
+                <ScalarProperty Name="ID_Maquina" ColumnName="ID_Maquina" />
+                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+                <ScalarProperty Name="ChaveAtivacao" ColumnName="ChaveAtivacao" />
+                <ScalarProperty Name="Maquina" ColumnName="Maquina" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="ID_UsuarioRelacionar" ColumnName="ID_UsuarioRelacionar" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

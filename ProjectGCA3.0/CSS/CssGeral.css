@@ -29,6 +29,29 @@
     font-size: 18px;
 }
 
-    .DivTextBlock .lbTextBlock {
-        color: white;
-    }
+.DivTextBlock .lbRelacionar{
+    color:white;
+}
+
+.DivTextBlock .lbTextBlock {
+    color: white;
+}
+
+.PnlApresentacao {
+    color: white;
+}
+
+.lbHomeTItulo {
+    font-size: 96px;
+    font-weight: 800;
+    letter-spacing: 5px;
+}
+
+.lbHomeSubTItulo{
+    font-size: 32px;
+}
+
+.PnlApresentacao p{
+    font-size: 20px;
+    padding: 24px;
+}
