@@ -1,11 +1,28 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Web Forms/MasterPage.Master" AutoEventWireup="true" CodeBehind="PagCadastro.aspx.cs" Inherits="ProjectGCA3._0.Web_Forms.PagCadastro" %>
 
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:Panel ID="PnlCadastroOpcoes" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server">
+    <%-- INÍCIO --%>
+
+    <asp:Panel ID="PnlApresentacao" CssClass="PnlApresentacao col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center" runat="server" Visible="false">
+        <div class="row text-center">
+            <asp:Label class="lbTextBlock lbHomeTItulo col-12 col-md-12 col-sm-12 " runat="server" Text="GCA"></asp:Label>
+            <asp:Label class="lbTextBlock lbHomeSubTItulo col-12 col-md-12 col-sm-12" runat="server" Text="Gerenciador de Chaves de Ativação"></asp:Label>
+            <p class="lbTextBlock col-12 col-md-12 col-sm-12">
+                Bem vindo ao GCA aqui você poderá gerenciar suas chaves de ativação através de um sistema de
+            consulta e cadastros...
+            </p>
+        </div>
+    </asp:Panel>
+
+    <%-- CADASTRAR --%>
+
+    <asp:Panel ID="PnlCadastroOpcoes" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
         <section class="row opcoes gap-2">
             <div class="col-12 col-md-12 col-sm-12 text-uppercase  mb-3">
                 <asp:Label ID="lbCadastroTitulo" CssClass="LbTitulo" runat="server" Text="Cadastrar"></asp:Label>
@@ -63,8 +80,8 @@
                 </div>
                 <div class="row p-0 m-0 gap-3">
                     <div class="col-7 col-md-7 col-sm-7"></div>
-                    <asp:Button ID="BtSalvarUsuario" CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar" OnClick="BtSalvarUsuario_Click"/>
-                    <asp:Button ID="BtCancelarUsuario" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar" OnClick="BtCancelarUsuario_Click"/>
+                    <asp:Button ID="BtSalvarUsuario" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Salvar" OnClick="BtSalvarUsuario_Click" />
+                    <asp:Button ID="BtCancelarUsuario" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar" OnClick="BtCancelarUsuario_Click" />
                 </div>
             </div>
         </section>
@@ -86,8 +103,8 @@
                 </div>
                 <div class="row p-0 m-0 gap-3 justify-content-end">
                     <div class="col-7 col-md-7 col-sm-7"></div>
-                    <asp:Button ID="BtSalvarMaquina" CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar" OnClick="BtSalvarMaquina_Click"/>
-                    <asp:Button ID="BtCancelarMaquina" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar" OnClick="BtCancelarMaquina_Click"/>
+                    <asp:Button ID="BtSalvarMaquina" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Salvar" OnClick="BtSalvarMaquina_Click" />
+                    <asp:Button ID="BtCancelarMaquina" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar" OnClick="BtCancelarMaquina_Click" />
                 </div>
             </div>
         </section>
@@ -105,8 +122,8 @@
                 </div>
                 <div class="row p-0 m-0 gap-3 justify-content-end">
                     <div class="col-7 col-md-7 col-sm-7"></div>
-                    <asp:Button ID="BtSalvarSetor" CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar" OnClick="BtSalvarSetor_Click" />
-                    <asp:Button ID="BtCancelarSetor" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar" OnClick="BtCancelarSetor_Click"/>
+                    <asp:Button ID="BtSalvarSetor" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Salvar" OnClick="BtSalvarSetor_Click" />
+                    <asp:Button ID="BtCancelarSetor" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar" OnClick="BtCancelarSetor_Click" />
                 </div>
             </div>
         </section>
@@ -140,8 +157,8 @@
                 </div>
                 <div class="row p-0 m-0 gap-3 justify-content-end">
                     <div class="col-7 col-md-7 col-sm-7"></div>
-                    <asp:Button ID="BtSalvarChaveAtivacao" CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar" OnClick="BtSalvarChaveAtivacao_Click"/>
-                    <asp:Button ID="BtCancelarChaveAtivacao" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar" OnClick="BtCancelarChaveAtivacao_Click"/>
+                    <asp:Button ID="BtSalvarChaveAtivacao" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Salvar" OnClick="BtSalvarChaveAtivacao_Click" />
+                    <asp:Button ID="BtCancelarChaveAtivacao" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar" OnClick="BtCancelarChaveAtivacao_Click" />
                 </div>
             </div>
         </section>
@@ -159,12 +176,133 @@
                 </div>
                 <div class="row p-0 m-0 gap-3 justify-content-end">
                     <div class="col-7 col-md-7 col-sm-7"></div>
-                    <asp:Button ID="BtSalvarTipoLicenca" CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar" OnClick="BtSalvarTipoLicenca_Click"/>
-                    <asp:Button ID="BtCancelarTipoLicenca" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar" OnClick="BtCancelarTipoLicenca_Click"/>
+                    <asp:Button ID="BtSalvarTipoLicenca" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Salvar" OnClick="BtSalvarTipoLicenca_Click" />
+                    <asp:Button ID="BtCancelarTipoLicenca" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar" OnClick="BtCancelarTipoLicenca_Click" />
                 </div>
             </div>
         </section>
     </asp:Panel>
 
-    <asp:HiddenField ID="HdfID" runat="server"/>
+    <%-- CONSULTAR --%>
+
+    <asp:Panel ID="Panel1" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
+        <section class="row opcoes gap-2">
+            <div class="col-12 col-md-12 col-sm-12 text-uppercase  mb-3">
+                <asp:Label ID="Label1" CssClass="LbTitulo" runat="server" Text="Consultar"></asp:Label>
+            </div>
+            <div class=" opcoes-item col-12 col-md-12 col-sm-12">
+                <asp:LinkButton ID="LnkConsultaUsuario" CssClass="LnkButton border d-flex m-auto" runat="server" OnClick="LnkConsultaUsuario_Click">
+                    <span class="icon"><i class="bi bi-person-circle"></i></span>
+                    <span class="txt-link">Usuário</span>
+                </asp:LinkButton>
+            </div>
+            <div class=" opcoes-item col-12 col-md-12 col-sm-12">
+                <asp:LinkButton ID="LnkConsultaMaquina" CssClass="LnkButton border d-flex m-auto" runat="server" OnClick="LnkConsultaMaquina_Click">
+                    <span class="icon"><i class="bi bi-pc-display-horizontal"></i></span>
+                    <span class="txt-link">Máquina</span>
+                </asp:LinkButton>
+            </div>
+            <div class="opcoes-item col-12 col-md-12 col-sm-12">
+                <asp:LinkButton ID="LnkConsultaChaves" CssClass="LnkButton border d-flex m-auto" runat="server" OnClick="LnkConsultaChaves_Click">
+                    <span class="icon"><i class="bi bi-key"></i></span>
+                    <span class="txt-link text-start">Chaves de Ativação</span>
+                </asp:LinkButton>
+            </div>
+        </section>
+    </asp:Panel>
+
+    <asp:Panel ID="PnlUsuarios" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
+        <telerik:RadGrid ID="GridUsuarios" runat="server" AutoGenerateColumns="false" OnNeedDataSource="GridUsuarios_NeedDataSource" OnItemCommand="GridUsuarios_ItemCommand">
+            <GroupingSettings CollapseAllTooltip="collaps all columns" />
+            <MasterTableView DataKeyNames="ID_Usuario">
+                <Columns>
+                    <telerik:GridTemplateColumn UniqueName="OP" AllowFiltering="false">
+                        <ItemTemplate>
+                            <asp:Button ID="btSelecionar" runat="server" Text="Selecionar" CommandName="opSelecionar" />
+                            <asp:Button ID="btEditar" runat="server" Text="editar" CommandName="opEditar" />
+                            <asp:Button ID="btexcluir" runat="server" Text="excluir" CommandName="opExcluir" />
+                        </ItemTemplate>
+                    </telerik:GridTemplateColumn>
+                    <telerik:GridBoundColumn UniqueName="col_CodUsuario" DataField="ID_Usuario" HeaderText="COD"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_NomeUsuario" DataField="NomeUsuario" HeaderText="USUÁRIO"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_Funcao" DataField="FuncaoUsuario" HeaderText="FUNÇÃO"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_Setor" DataField="SetorUsuario" HeaderText="SETOR"></telerik:GridBoundColumn>
+                </Columns>
+            </MasterTableView>
+        </telerik:RadGrid>
+    </asp:Panel>
+
+    <asp:Panel ID="PnlMaquinas" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
+        <telerik:RadGrid ID="GridMaquinas" runat="server" AutoGenerateColumns="false" OnNeedDataSource="GridMaquinas_NeedDataSource" OnItemCommand="GridMaquinas_ItemCommand">
+            <GroupingSettings CollapseAllTooltip="collaps all columns" />
+            <MasterTableView DataKeyNames="ID_Maquina">
+                <Columns>
+                    <telerik:GridTemplateColumn UniqueName="OP" AllowFiltering="false">
+                        <ItemTemplate>
+                            <asp:Button ID="btSelecionar" runat="server" Text="Selecionar" CommandName="opSelecionar" />
+                            <asp:Button ID="btEditar" runat="server" Text="editar" CommandName="opEditar" />
+                            <asp:Button ID="btexcluir" runat="server" Text="excluir" CommandName="opExcluir" />
+                        </ItemTemplate>
+                    </telerik:GridTemplateColumn>
+                    <telerik:GridBoundColumn UniqueName="col_CodMaquina" DataField="ID_Maquina" HeaderText="COD"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_NomeMaquina" DataField="NomeMaquina" HeaderText="NOME DA MÁQUINA"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_Setor" DataField="SetorMaquina" HeaderText="SETOR"></telerik:GridBoundColumn>
+                </Columns>
+            </MasterTableView>
+        </telerik:RadGrid>
+    </asp:Panel>
+
+    <asp:Panel ID="PnlChaves" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
+        <telerik:RadGrid ID="GridChaves" runat="server" AutoGenerateColumns="false" OnNeedDataSource="GridChaves_NeedDataSource" OnItemCommand="GridChaves_ItemCommand">
+            <GroupingSettings CollapseAllTooltip="collaps all columns" />
+            <MasterTableView DataKeyNames="ID_ChaveAtivacao">
+                <Columns>
+                    <telerik:GridTemplateColumn UniqueName="OP" AllowFiltering="false">
+                        <ItemTemplate>
+                            <asp:Button ID="btSelecionar" runat="server" Text="Selecionar" CommandName="opSelecionar" />
+                            <asp:Button ID="btEditar" runat="server" Text="editar" CommandName="opEditar" />
+                            <asp:Button ID="btexcluir" runat="server" Text="excluir" CommandName="opExcluir" />
+                        </ItemTemplate>
+                    </telerik:GridTemplateColumn>
+                    <telerik:GridBoundColumn UniqueName="col_CodChaveAtivacao" DataField="ID_ChaveAtivacao" HeaderText="COD"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_NomeSoftware" DataField="NomeSoftware" HeaderText="SOFTWARE"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_Fabricante" DataField="Fabricante" HeaderText="FABRICANTE"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_TipoLicenca" DataField="TipoLicenca" HeaderText="TIPO DE LICENÇA"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_PrazoLicenca" DataField="PrazoLicenca" HeaderText="PRAZO DE LICENÇA"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_ChaveAtivacao" DataField="ChaveAtivacao" HeaderText="CHAVE DE ATIVAÇÃO"></telerik:GridBoundColumn>
+                </Columns>
+            </MasterTableView>
+        </telerik:RadGrid>
+    </asp:Panel>
+
+    <%-- RELACIONAR --%>
+
+     <asp:Panel ID="PnlRelacionar" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
+        <section class="row">
+            <div class="col-12 col-md-12 col-sm-12 mx-auto mb-5 text-uppercase">
+                <asp:Label ID="Label2" CssClass="LbTitulo" runat="server" Text="Relacionar"></asp:Label>
+            </div>
+            <div class="DivTextBlock row d-flex m-auto p-0 gap-2">
+                <div class="row p-0 m-0 gap-1 justify-content-between">
+                    <asp:Label CssClass="lbRelacionar col-2 col-md-2 col-sm-2 " runat="server" Text="Usuario"></asp:Label>
+                    <asp:Label CssClass="lbRelacionar col-2 col-md-2 col-sm-2" runat="server" Text="Máquina"></asp:Label>
+                    <asp:Label CssClass="lbRelacionar col-2 col-md-2 col-sm-2" runat="server" Text="Software"></asp:Label>
+                    <asp:Label CssClass="lbRelacionar col-5 col-md-5 col-sm-5" runat="server" Text="Chave de Ativação"></asp:Label>
+                </div>
+                <div class="row p-0 m-0 gap-1 justify-content-between">
+                    <asp:DropDownList CssClass="col-2 col-md-2 col-sm-2" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="col-2 col-md-2 col-sm-2" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="col-2 col-md-2 col-sm-2" runat="server"></asp:DropDownList>
+                    <asp:DropDownList CssClass="col-5 col-md-5 col-sm-5" runat="server"></asp:DropDownList>
+                </div>
+                <div class="row p-0 m-0 gap-3 justify-content-end">
+                    <div class="col-7 col-md-7 col-sm-7"></div>
+                    <asp:Button CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar"/>
+                    <asp:Button CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar"/>
+                </div>
+            </div>
+        </section>
+    </asp:Panel>
+
+    <asp:HiddenField ID="HdfID" runat="server" />
 </asp:Content>

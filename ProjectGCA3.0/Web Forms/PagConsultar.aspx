@@ -37,7 +37,6 @@
         <telerik:RadGrid ID="GridUsuarios" runat="server" AutoGenerateColumns="false" OnNeedDataSource="GridUsuarios_NeedDataSource" OnItemCommand="GridUsuarios_ItemCommand">
             <GroupingSettings CollapseAllTooltip="collaps all columns" />
             <MasterTableView DataKeyNames="ID_Usuario">
-                <%--INSERIR DATAKEYNAMES--%>
                 <Columns>
                     <telerik:GridTemplateColumn UniqueName="OP" AllowFiltering="false">
                         <ItemTemplate>

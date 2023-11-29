@@ -85,5 +85,36 @@ namespace ProjectGCA3._0.Útil
         //                }
         //            }
         //}
+
+        // Importe os namespaces necessários
+
+
+
+        //public partial class Site : MasterPage
+        //{
+        //    protected void Page_Load(object sender, EventArgs e)
+        //    {
+        //    }
+
+        //    protected void btnMostrarPanel_Click(object sender, EventArgs e)
+        //    {
+        //        // Verifica se a página contém o ContentPlaceHolder desejado
+        //        ContentPlaceHolder contentPlaceHolder = Page.Master.FindControl("ContentPlaceHolder1") as ContentPlaceHolder;
+
+        //        if (contentPlaceHolder != null)
+        //        {
+        //            // Acesse o Panel dentro do ContentPlaceHolder
+        //            Panel pnlExemplo = contentPlaceHolder.FindControl("pnlExemplo") as Panel;
+
+        //            if (pnlExemplo != null)
+        //            {
+        //                // Torna o Panel visível
+        //                pnlExemplo.Visible = true;
+        //            }
+        //        }
+        //    }
+        //}
     }
-}
+
+
+    }

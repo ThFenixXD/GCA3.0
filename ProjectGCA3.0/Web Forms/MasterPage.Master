@@ -29,13 +29,17 @@
                     </a>
                 </li>
                 <li class="item-menu">
-                    <a href="PagConsultar.aspx">
+                    <asp:LinkButton ID="Teste" runat="server" OnClick="Teste_Click" Text="Teste"></asp:LinkButton>
+
+
+                    <asp:LinkButton ID="PagCadastro" runat="server" OnClick="PagCadastro_Click">
                         <span class="icon"><i class="bi bi-search"></i></span>
                         <span class="txt-link">Consultar</span>
-                    </a>
+                    </asp:LinkButton>
+
                 </li>
                 <li class="item-menu">
-                    <a href="PagRelacionar.aspx">
+                    <a href="PagCadastro.aspx">
                         <span class="icon"><i class="bi bi-bezier2"></i></span>
                         <span class="txt-link">Relacionar</span>
                     </a>
@@ -46,11 +50,11 @@
                         <span class="txt-link">Cadastro</span>
                     </a>
                 </li>
-                
+
             </ul>
         </nav>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
     </form>
 </body>
 </html>

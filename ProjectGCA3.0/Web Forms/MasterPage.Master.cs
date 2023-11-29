@@ -14,6 +14,40 @@ namespace ProjectGCA3._0.Web_Forms
 
         }
 
-       
+        protected void Teste_Click(object sender, EventArgs e)
+        {
+            // Verifica se a página contém o ContentPlaceHolder desejado
+            ContentPlaceHolder contentPlaceHolder = Page.Master.FindControl("ContentPlaceHolder1") as ContentPlaceHolder;
+
+            if (contentPlaceHolder != null)
+            {
+                // Acesse o Panel dentro do ContentPlaceHolder
+                Panel pnlExemplo = contentPlaceHolder.FindControl("PnlApresentacao") as Panel;
+
+                if (pnlExemplo != null)
+                {
+                    // Faça algo com o Panel, por exemplo, torná-lo visível
+                    pnlExemplo.Visible = true;
+                }
+            }
+        }
+
+        protected void PagCadastro_Click(object sender, EventArgs e)
+        {
+            // Verifica se a página contém o ContentPlaceHolder desejado
+            ContentPlaceHolder contentPlaceHolder = Page.Master.FindControl("ContentPlaceHolder1") as ContentPlaceHolder;
+
+            if (contentPlaceHolder != null)
+            {
+                // Acesse o Panel dentro do ContentPlaceHolder
+                Panel pnlExemplo = contentPlaceHolder.FindControl("PnlCadastroOpcoes") as Panel;
+
+                if (pnlExemplo != null)
+                {
+                    // Faça algo com o Panel, por exemplo, torná-lo visível
+                    pnlExemplo.Visible = true;
+                }
+            }
+        }
     }
 }
