@@ -17,6 +17,7 @@
           <Property Name="ChaveAtivacao" Type="nvarchar" MaxLength="50" />
           <Property Name="ID_Usuario" Type="int" />
           <Property Name="ID_Maquina" Type="int" />
+          <Property Name="ID_TipoLicenca" Type="int" />
           <Property Name="Status" Type="int" />
           <Property Name="Deleted" Type="int" />
         </EntityType>
@@ -112,6 +113,7 @@
           <Property Name="ID_Maquina" Type="Int32" />
           <Property Name="Status" Type="Int32" />
           <Property Name="Deleted" Type="Int32" />
+          <Property Name="ID_TipoLicenca" Type="Int32" />
         </EntityType>
         <EntityType Name="tb_Maquinas">
           <Key>
@@ -180,6 +182,7 @@
           <EntitySetMapping Name="tb_Chaves">
             <EntityTypeMapping TypeName="ProjectGCA.tb_Chaves">
               <MappingFragment StoreEntitySet="tb_Chaves">
+                <ScalarProperty Name="ID_TipoLicenca" ColumnName="ID_TipoLicenca" />
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="ID_Maquina" ColumnName="ID_Maquina" />

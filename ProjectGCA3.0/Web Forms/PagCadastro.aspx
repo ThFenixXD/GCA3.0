@@ -50,21 +50,21 @@
             </div>
             <div class="DivTextBlock row d-flex m-auto gap-2">
                 <div class="row">
-                    <asp:Label ID="lbNomeUsuario" CssClass="lbTextBlock col-4 col-md-4 col-sm-4" runat="server" Text="Nome do Usuário"></asp:Label>
+                    <asp:Label ID="lbNomeUsuario" CssClass="lbTextBlock col-4 col-md-4 col-sm-4 p-0 m-0" runat="server" Text="Nome do Usuário"></asp:Label>
                     <asp:TextBox ID="txtNomeUsuario" CssClass="txtTextBlock col-8 col-md-8 col-sm-8" runat="server"></asp:TextBox>
                 </div>
                 <div class="row">
                     <asp:Label ID="lbFuncao" CssClass="lbTextBlock col-4 col-md-4 col-sm-4" runat="server" Text="Função"></asp:Label>
-                    <asp:TextBox ID="txtFuncao" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtFuncaoUsuario" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:TextBox>
                 </div>
                 <div class="row">
                     <asp:Label ID="lbSetorUsuario" CssClass="lbTextBlock col-4 col-md-4 col-sm-4" runat="server" Text="Setor"></asp:Label>
-                    <asp:DropDownList ID="ddlSetor" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlSetorUsuario" CssClass="col-8 col-md-8 col-sm-8 text-center" runat="server" DataTextField="NomeSetor" DataValueField="ID_Setor"></asp:DropDownList>
                 </div>
                 <div class="row p-0 m-0 gap-3">
                     <div class="col-7 col-md-7 col-sm-7"></div>
-                    <asp:Button CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar"/>
-                    <asp:Button CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar"/>
+                    <asp:Button ID="BtSalvarUsuario" CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar" OnClick="BtSalvarUsuario_Click"/>
+                    <asp:Button ID="BtCancelarUsuario" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar" OnClick="BtCancelarUsuario_Click"/>
                 </div>
             </div>
         </section>
@@ -82,12 +82,12 @@
                 </div>
                 <div class="row">
                     <asp:Label ID="lbSetorMaquina" CssClass="lbTextBlock col-4 col-md-4 col-sm-4" runat="server" Text="Setor"></asp:Label>
-                    <asp:DropDownList ID="DdlSetorMaquina" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="DdlSetorMaquina" CssClass="col-8 col-md-8 col-sm-8 text-center" runat="server" DataTextField="NomeSetor" DataValueField="ID_Setor"></asp:DropDownList>
                 </div>
                 <div class="row p-0 m-0 gap-3 justify-content-end">
                     <div class="col-7 col-md-7 col-sm-7"></div>
-                    <asp:Button CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar"/>
-                    <asp:Button CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar"/>
+                    <asp:Button ID="BtSalvarMaquina" CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar" OnClick="BtSalvarMaquina_Click"/>
+                    <asp:Button ID="BtCancelarMaquina" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar" OnClick="BtCancelarMaquina_Click"/>
                 </div>
             </div>
         </section>
@@ -101,12 +101,12 @@
             <div class="DivTextBlock row d-flex m-auto gap-2">
                 <div class="row">
                     <asp:Label ID="lbSetor" CssClass="lbTextBlock col-4 col-md-4 col-sm-4" runat="server" Text="Nome do Setor"></asp:Label>
-                    <asp:TextBox ID="txtSetor" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtNomeSetor" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:TextBox>
                 </div>
                 <div class="row p-0 m-0 gap-3 justify-content-end">
                     <div class="col-7 col-md-7 col-sm-7"></div>
-                    <asp:Button CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar"/>
-                    <asp:Button CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar"/>
+                    <asp:Button ID="BtSalvarSetor" CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar" OnClick="BtSalvarSetor_Click" />
+                    <asp:Button ID="BtCancelarSetor" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar" OnClick="BtCancelarSetor_Click"/>
                 </div>
             </div>
         </section>
@@ -115,7 +115,7 @@
     <asp:Panel ID="PnlCadastroChaveAtivacao" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
         <section class="row">
             <div class="col-12 col-md-12 col-sm-12 mb-5 text-uppercase">
-                <asp:Label ID="lbChaveAticacaoTitulo" CssClass="LbTitulo" runat="server" Text="Chave de Ativação"></asp:Label>
+                <asp:Label ID="lbChaveAtivacaoTitulo" CssClass="LbTitulo" runat="server" Text="Chave de Ativação"></asp:Label>
             </div>
             <div class="DivTextBlock row d-flex m-auto gap-2">
                 <div class="row">
@@ -128,7 +128,7 @@
                 </div>
                 <div class="row">
                     <asp:Label ID="lbTipoLicenca" CssClass="lbTextBlock col-4 col-md-4 col-sm-4 p-0" runat="server" Text="Tipo de Licença"></asp:Label>
-                    <asp:DropDownList ID="ddlTipolicenca" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlTipolicenca" CssClass="col-8 col-md-8 col-sm-8 text-center" runat="server" DataTextField="TipoLicenca" DataValueField="ID_TipoLicenca"></asp:DropDownList>
                 </div>
                 <div class="row">
                     <asp:Label ID="lbPrazoLicenca" CssClass="lbTextBlock col-4 col-md-4 col-sm-4 p-0" runat="server" Text="Prazo de Licença"></asp:Label>
@@ -140,8 +140,8 @@
                 </div>
                 <div class="row p-0 m-0 gap-3 justify-content-end">
                     <div class="col-7 col-md-7 col-sm-7"></div>
-                    <asp:Button CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar"/>
-                    <asp:Button CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar"/>
+                    <asp:Button ID="BtSalvarChaveAtivacao" CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar" OnClick="BtSalvarChaveAtivacao_Click"/>
+                    <asp:Button ID="BtCancelarChaveAtivacao" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar" OnClick="BtCancelarChaveAtivacao_Click"/>
                 </div>
             </div>
         </section>
@@ -159,11 +159,12 @@
                 </div>
                 <div class="row p-0 m-0 gap-3 justify-content-end">
                     <div class="col-7 col-md-7 col-sm-7"></div>
-                    <asp:Button CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar"/>
-                    <asp:Button CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar"/>
+                    <asp:Button ID="BtSalvarTipoLicenca" CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar" OnClick="BtSalvarTipoLicenca_Click"/>
+                    <asp:Button ID="BtCancelarTipoLicenca" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar" OnClick="BtCancelarTipoLicenca_Click"/>
                 </div>
             </div>
         </section>
     </asp:Panel>
 
+    <asp:HiddenField ID="HdfID" runat="server"/>
 </asp:Content>

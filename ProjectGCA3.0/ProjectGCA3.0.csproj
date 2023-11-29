@@ -175,6 +175,7 @@
     <Compile Include="Web Forms\PagRelacionar.aspx.designer.cs">
       <DependentUpon>PagRelacionar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Útil\Class1.cs" />
     <Compile Include="Útil\Framework.cs" />
   </ItemGroup>
   <ItemGroup>

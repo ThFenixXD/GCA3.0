@@ -24,5 +24,6 @@ namespace ProjectGCA3._0
         public Nullable<int> ID_Maquina { get; set; }
         public Nullable<int> Status { get; set; }
         public Nullable<int> Deleted { get; set; }
+        public Nullable<int> ID_TipoLicenca { get; set; }
     }
 }
