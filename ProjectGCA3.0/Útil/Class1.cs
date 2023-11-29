@@ -114,7 +114,33 @@ namespace ProjectGCA3._0.Útil
         //        }
         //    }
         //}
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            //// Verifica se a página está sendo carregada pela primeira vez
+            //if (!IsPostBack)
+            //{
+            //    // Obtém uma referência ao ContentPlaceHolder desejado
+            //    ContentPlaceHolder contentPlaceHolder = Page.Master.FindControl("ContentPlaceHolder1") as ContentPlaceHolder;
+
+            //    // Verifica se o ContentPlaceHolder foi encontrado
+            //    if (contentPlaceHolder != null)
+            //    {
+            //        // Itera sobre os controles dentro do ContentPlaceHolder
+            //        foreach (Control control in contentPlaceHolder.Controls)
+            //        {
+            //            // Verifica se o controle é um Panel
+            //            if (control is Panel)
+            //            {
+            //                // Torna o Panel invisível
+            //                Panel panel = (Panel)control;
+            //                panel.Visible = false;
+            //            }
+            //        }
+            //    }
+            //}
+        }
+
     }
 
 
-    }
+}

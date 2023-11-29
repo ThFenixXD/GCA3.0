@@ -14,11 +14,19 @@ namespace ProjectGCA3._0.Web_Forms
 
         protected void EscondePaineis()
         {
-            PnlCadastroOpcoes.Visible = false;
-            PnlCadastroUsuario.Visible = false;
-            PnlCadastroMaquina.Visible = false;
-            PnlCadastroSetor.Visible = false;
-            PnlCadastroChaveAtivacao.Visible = false;
+            PnlApresentacao.Visible =
+            PnlCadastroOpcoes.Visible =
+            PnlCadastroUsuario.Visible =
+            PnlCadastroMaquina.Visible =
+            PnlCadastroSetor.Visible =
+            PnlCadastroChaveAtivacao.Visible =
+            PnlCadastroTipoLicenca.Visible =
+            PnlConsultar.Visible =
+            PnlConsultarUsuarios.Visible =
+            PnlConsultarMaquinas.Visible =
+            PnlConsultarChaves.Visible =
+            PnlConsultarRelacionar.Visible
+            PnlRelacionar.Visible = false;
         }
 
         protected void LimpaCampos()
@@ -55,6 +63,34 @@ namespace ProjectGCA3._0.Web_Forms
             ddlTipolicenca.Items.Insert(0, new ListItem("Selecionar"));
         }
 
+        protected void PopulaDdlRelacionarUsuario()
+        {
+            DdlRelacionarUsuario.DataSource = Framework.GetDataTable("SELECT ID_Usuario, NomeUsuario FROM tb_Usuarios");
+            DdlRelacionarUsuario.DataBind();
+            DdlRelacionarUsuario.Items.Insert(0, new ListItem("Selecionar"));
+        }
+
+        protected void PopulaDdlRelacionarMaquina()
+        {
+            DdlRelacionarMaquina.DataSource = Framework.GetDataTable("SELECT ID_Maquina, NomeMaquina FROM tb_Maquinas");
+            DdlRelacionarMaquina.DataBind();
+            DdlRelacionarMaquina.Items.Insert(0, new ListItem("Selecionar"));
+        }
+
+        protected void PopulaDdlRelacionarSoftware()
+        {
+            DdlRelacionarSoftware.DataSource = Framework.GetDataTable("SELECT ID_ChaveAtivacao, NomeSoftware FROM tb_Chaves");
+            DdlRelacionarSoftware.DataBind();
+            DdlRelacionarSoftware.Items.Insert(0, new ListItem("Selecionar"));
+        }
+
+        protected void PopulaDdlRelacionarChaveAtivacao()
+        {
+            DdlRelacionarChaveAtivacao.DataSource = Framework.GetDataTable("SELECT ID_ChaveAtivacao, ChaveAtivacao FROM tb_Chaves");
+            DdlRelacionarChaveAtivacao.DataBind();
+            DdlRelacionarChaveAtivacao.Items.Insert(0, new ListItem("Selecionar"));
+        }
+
         protected void AtualizaGridUsuarios(string Query)
         {
             GridUsuarios.DataSource = Framework.GetDataTable(Query);
@@ -72,6 +108,13 @@ namespace ProjectGCA3._0.Web_Forms
             GridChaves.DataSource = Framework.GetDataTable(Query);
             GridChaves.DataBind();
         }
+
+        protected void AtualizaGridRelacionar(String Query)
+        {
+            GridRelacionar.DataSource = Framework.GetDataTable(Query);
+            GridRelacionar.DataBind();
+        }
+
         #endregion
 
         #region OnClick
@@ -337,22 +380,69 @@ namespace ProjectGCA3._0.Web_Forms
         protected void LnkConsultaUsuario_Click(object sender, EventArgs e)
         {
             EscondePaineis();
-            PnlUsuarios.Visible = true;
+            PnlConsultarUsuarios.Visible = true;
             AtualizaGridUsuarios("SELECT ID_Usuario, ID_Usuario, NomeUsuario, FuncaoUsuario, SetorUsuario FROM tb_Usuarios WHERE Status = 1 AND Deleted = 0");
         }
 
         protected void LnkConsultaMaquina_Click(object sender, EventArgs e)
         {
             EscondePaineis();
-            PnlMaquinas.Visible = true;
+            PnlConsultarMaquinas.Visible = true;
             AtualizaGridMaquinas("SELECT ID_Maquina, ID_Maquina, NomeMaquina, SetorMaquina FROM tb_Maquinas WHERE Deleted = 0");
         }
 
         protected void LnkConsultaChaves_Click(object sender, EventArgs e)
         {
             EscondePaineis();
-            PnlChaves.Visible = true;
+            PnlConsultarChaves.Visible = true;
             AtualizaGridChaves("SELECT ID_ChaveAtivacao, NomeSoftware, Fabricante, TipoLicenca, PrazoLicenca, ChaveAtivacao FROM tb_Chaves WHERE Deleted = 0");
+        }
+
+        protected void CancelarRelacionar_Click(object sender, EventArgs e)
+        {
+            EscondePaineis();
+            PnlRelacionar.Visible = true;
+        }
+
+        protected void SalvarRelacionar_Click(object sender, EventArgs e)
+        {
+            using (GCAEntities ctx = new GCAEntities())
+            {
+                tb_Relacionamento Usuario = new tb_Relacionamento();
+                try
+                {
+                    if (!string.IsNullOrEmpty(HdfID.Value))
+                    {
+                        int _id = Convert.ToInt32(HdfID.Value);
+
+                        var Query = (from objUsuario in ctx.tb_Relacionamento select objUsuario);
+
+                        Usuario = Query.FirstOrDefault();
+                    }
+                    else
+                    {
+                        Usuario.UsuarioRelacionar = DdlRelacionarUsuario.SelectedItem.ToString();
+                        Usuario.MaquinaRelacionar = DdlRelacionarMaquina.SelectedItem.ToString();
+                        Usuario.SoftwareRelacionar = DdlRelacionarSoftware.SelectedItem.ToString();
+                        Usuario.ChaveAtivacaoRelacionar = DdlRelacionarChaveAtivacao.ToString();
+                        Usuario.Deleted = 0;
+
+                        if (string.IsNullOrEmpty(HdfID.Value))
+                        {
+                            ctx.tb_Relacionamento.Add(Usuario);
+                        }
+                        ctx.SaveChanges();
+                        EscondePaineis();
+                        LimpaCampos();
+                        
+                        PnlCadastroOpcoes.Visible = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("Erro, " + ex.Message);
+                }
+            }
         }
 
         #endregion
@@ -470,7 +560,7 @@ namespace ProjectGCA3._0.Web_Forms
 
         #endregion
 
-        #region Programa Principal
+        #region Page_Load
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -479,8 +569,14 @@ namespace ProjectGCA3._0.Web_Forms
                 PopulaDdlSetorUsuario();
                 PopulaDdlSetorMaquina();
                 PopulaDdlTipoLicenca();
+                PopulaDdlRelacionarUsuario();
+                PopulaDdlRelacionarMaquina();
+                PopulaDdlRelacionarSoftware();
+                PopulaDdlRelacionarChaveAtivacao();
             }
         }
         #endregion
+
+        
     }
 }

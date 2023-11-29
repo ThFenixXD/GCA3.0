@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Web Forms/MasterPage.Master" AutoEventWireup="true" CodeBehind="PagCadastro.aspx.cs" Inherits="ProjectGCA3._0.Web_Forms.PagCadastro" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Web Forms/MasterPage.Master" AutoEventWireup="true" CodeBehind="SistemaGCA.aspx.cs" Inherits="ProjectGCA3._0.Web_Forms.PagCadastro" %>
 
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 
@@ -9,7 +9,7 @@
 
     <%-- INÍCIO --%>
 
-    <asp:Panel ID="PnlApresentacao" CssClass="PnlApresentacao col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center" runat="server" Visible="false">
+    <asp:Panel ID="PnlApresentacao" CssClass="PnlApresentacao col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center" runat="server" Visible="true">
         <div class="row text-center">
             <asp:Label class="lbTextBlock lbHomeTItulo col-12 col-md-12 col-sm-12 " runat="server" Text="GCA"></asp:Label>
             <asp:Label class="lbTextBlock lbHomeSubTItulo col-12 col-md-12 col-sm-12" runat="server" Text="Gerenciador de Chaves de Ativação"></asp:Label>
@@ -185,7 +185,7 @@
 
     <%-- CONSULTAR --%>
 
-    <asp:Panel ID="Panel1" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
+    <asp:Panel ID="PnlConsultar" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
         <section class="row opcoes gap-2">
             <div class="col-12 col-md-12 col-sm-12 text-uppercase  mb-3">
                 <asp:Label ID="Label1" CssClass="LbTitulo" runat="server" Text="Consultar"></asp:Label>
@@ -211,7 +211,7 @@
         </section>
     </asp:Panel>
 
-    <asp:Panel ID="PnlUsuarios" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
+    <asp:Panel ID="PnlConsultarUsuarios" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
         <telerik:RadGrid ID="GridUsuarios" runat="server" AutoGenerateColumns="false" OnNeedDataSource="GridUsuarios_NeedDataSource" OnItemCommand="GridUsuarios_ItemCommand">
             <GroupingSettings CollapseAllTooltip="collaps all columns" />
             <MasterTableView DataKeyNames="ID_Usuario">
@@ -232,7 +232,7 @@
         </telerik:RadGrid>
     </asp:Panel>
 
-    <asp:Panel ID="PnlMaquinas" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
+    <asp:Panel ID="PnlConsultarMaquinas" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
         <telerik:RadGrid ID="GridMaquinas" runat="server" AutoGenerateColumns="false" OnNeedDataSource="GridMaquinas_NeedDataSource" OnItemCommand="GridMaquinas_ItemCommand">
             <GroupingSettings CollapseAllTooltip="collaps all columns" />
             <MasterTableView DataKeyNames="ID_Maquina">
@@ -252,7 +252,7 @@
         </telerik:RadGrid>
     </asp:Panel>
 
-    <asp:Panel ID="PnlChaves" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
+    <asp:Panel ID="PnlConsultarChaves" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
         <telerik:RadGrid ID="GridChaves" runat="server" AutoGenerateColumns="false" OnNeedDataSource="GridChaves_NeedDataSource" OnItemCommand="GridChaves_ItemCommand">
             <GroupingSettings CollapseAllTooltip="collaps all columns" />
             <MasterTableView DataKeyNames="ID_ChaveAtivacao">
@@ -275,30 +275,54 @@
         </telerik:RadGrid>
     </asp:Panel>
 
+    <asp:Panel ID="PnlConsultarRelacionar" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
+        <telerik:RadGrid ID="GridRelacionar" runat="server" AutoGenerateColumns="false" OnNeedDataSource="GridChaves_NeedDataSource" OnItemCommand="GridChaves_ItemCommand">
+            <GroupingSettings CollapseAllTooltip="collaps all columns" />
+            <MasterTableView DataKeyNames="ID_Relacionar">
+                <Columns>
+                    <telerik:GridTemplateColumn UniqueName="OP" AllowFiltering="false">
+                        <ItemTemplate>
+                            <asp:Button ID="btSelecionar" runat="server" Text="Selecionar" CommandName="opSelecionar" />
+                            <asp:Button ID="btEditar" runat="server" Text="editar" CommandName="opEditar" />
+                            <asp:Button ID="btexcluir" runat="server" Text="excluir" CommandName="opExcluir" />
+                        </ItemTemplate>
+                    </telerik:GridTemplateColumn>
+                    <telerik:GridBoundColumn UniqueName="col_CodChaveAtivacao" DataField="NomeUsuario" HeaderText="USUARIO"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_NomeSoftware" DataField="NomeMaquina" HeaderText="MAQUINA"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_Fabricante" DataField="NomeSoftware" HeaderText="SOFTWARE"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_ChaveAtivacao" DataField="ChaveAtivacao" HeaderText="CHAVE DE ATIVAÇÃO"></telerik:GridBoundColumn>
+                </Columns>
+            </MasterTableView>
+        </telerik:RadGrid>
+    </asp:Panel>
+
     <%-- RELACIONAR --%>
 
-     <asp:Panel ID="PnlRelacionar" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
+    <asp:Panel ID="PnlRelacionar" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
         <section class="row">
             <div class="col-12 col-md-12 col-sm-12 mx-auto mb-5 text-uppercase">
                 <asp:Label ID="Label2" CssClass="LbTitulo" runat="server" Text="Relacionar"></asp:Label>
             </div>
-            <div class="DivTextBlock row d-flex m-auto p-0 gap-2">
-                <div class="row p-0 m-0 gap-1 justify-content-between">
-                    <asp:Label CssClass="lbRelacionar col-2 col-md-2 col-sm-2 " runat="server" Text="Usuario"></asp:Label>
-                    <asp:Label CssClass="lbRelacionar col-2 col-md-2 col-sm-2" runat="server" Text="Máquina"></asp:Label>
-                    <asp:Label CssClass="lbRelacionar col-2 col-md-2 col-sm-2" runat="server" Text="Software"></asp:Label>
-                    <asp:Label CssClass="lbRelacionar col-5 col-md-5 col-sm-5" runat="server" Text="Chave de Ativação"></asp:Label>
+            <div class="DivTextBlock row d-flex m-auto p-0 gap-4">
+                <div class="row p-0 m-0 gap-2 justify-content-evenly">
+                    <asp:Label CssClass="lbRelacionar col-4 col-md-4 col-sm-4 text-center" runat="server" Text="Usuario"></asp:Label>
+                    <asp:Label CssClass="lbRelacionar col-4 col-md-4 col-sm-4 text-center" runat="server" Text="Máquina"></asp:Label>
                 </div>
-                <div class="row p-0 m-0 gap-1 justify-content-between">
-                    <asp:DropDownList CssClass="col-2 col-md-2 col-sm-2" runat="server"></asp:DropDownList>
-                    <asp:DropDownList CssClass="col-2 col-md-2 col-sm-2" runat="server"></asp:DropDownList>
-                    <asp:DropDownList CssClass="col-2 col-md-2 col-sm-2" runat="server"></asp:DropDownList>
-                    <asp:DropDownList CssClass="col-5 col-md-5 col-sm-5" runat="server"></asp:DropDownList>
+                <div class="row p-0 m-0 gap-4 justify-content-evenly">
+                    <asp:DropDownList ID="DdlRelacionarUsuario" CssClass="col-4 col-md-4 col-sm-4 text-center" runat="server" DataTextField="NomeUsuario" DataValueField="ID_Usuario"></asp:DropDownList>
+                    <asp:DropDownList ID="DdlRelacionarMaquina" CssClass="col-4 col-md-4 col-sm-4 text-center" runat="server" DataTextField="NomeMaquina" DataValueField="ID_Maquina"></asp:DropDownList>
                 </div>
-                <div class="row p-0 m-0 gap-3 justify-content-end">
-                    <div class="col-7 col-md-7 col-sm-7"></div>
-                    <asp:Button CssClass="col-2 col-md-2 col-sm-2"  runat="server" Text="Salvar"/>
-                    <asp:Button CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar"/>
+                <div class="row p-0 m-0 gap-4 justify-content-evenly">
+                    <asp:Label CssClass="lbRelacionar col-4 col-md-4 col-sm-4 text-center" runat="server" Text="Software"></asp:Label>
+                    <asp:Label CssClass="lbRelacionar col-4 col-md-4 col-sm-4 text-center" runat="server" Text="Chave de Ativação"></asp:Label>
+                </div>
+                <div class="row p-0 m-0 gap-4 justify-content-evenly">
+                    <asp:DropDownList ID="DdlRelacionarSoftware" CssClass="col-4 col-md-4 col-sm-4 text-center" runat="server" DataTextField="NomeSoftware" DataValueField="ID_ChaveAtivacao"></asp:DropDownList>
+                    <asp:DropDownList ID="DdlRelacionarChaveAtivacao" CssClass="col-4 col-md-4 col-sm-4 text-center" runat="server" DataTextField="ChaveAtivacao" DataValueField="ID_ChaveAtivacao"></asp:DropDownList>
+                </div>
+                <div class="row gap-4 mt-5 justify-content-center">
+                    <asp:Button ID="SalvarRelacionar" CssClass="col-3 col-md-3 col-sm-3 text-center" runat="server" Text="Salvar" OnClick="SalvarRelacionar_Click" />
+                    <asp:Button ID="CancelarRelacionar" CssClass="col-3 col-md-3 col-sm-3  text-center" runat="server" Text="Cancelar" OnClick="CancelarRelacionar_Click" />
                 </div>
             </div>
         </section>

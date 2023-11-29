@@ -91,11 +91,11 @@
       <DependentUpon>ProjectGCAModel.edmx</DependentUpon>
       <LastGenOutput>ProjectGCAModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Web Forms\HomePage.aspx" />
-    <Content Include="Web Forms\MasterPageTeste.aspx" />
-    <Content Include="Web Forms\PagCadastro.aspx" />
-    <Content Include="Web Forms\PagConsultar.aspx" />
-    <Content Include="Web Forms\PagRelacionar.aspx" />
+    <Content Include="Webforms.OLD\HomePage.aspx" />
+    <Content Include="Webforms.OLD\MasterPageTeste.aspx" />
+    <Content Include="Web Forms\SistemaGCA.aspx" />
+    <Content Include="Webforms.OLD\PagConsultar.aspx" />
+    <Content Include="Webforms.OLD\PagRelacionar.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -121,7 +121,7 @@
     <Compile Include="tb_Maquinas.cs">
       <DependentUpon>ProjectGCAModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_Relacionamento.cs">
+    <Compile Include="tb_Relacionar.cs">
       <DependentUpon>ProjectGCAModel.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_Setores.cs">
@@ -133,11 +133,11 @@
     <Compile Include="tb_Usuarios.cs">
       <DependentUpon>ProjectGCAModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Web Forms\HomePage.aspx.cs">
+    <Compile Include="Webforms.OLD\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web Forms\HomePage.aspx.designer.cs">
+    <Compile Include="Webforms.OLD\HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web Forms\MasterPage.Master.cs">
@@ -147,32 +147,32 @@
     <Compile Include="Web Forms\MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
-    <Compile Include="Web Forms\MasterPageTeste.aspx.cs">
+    <Compile Include="Webforms.OLD\MasterPageTeste.aspx.cs">
       <DependentUpon>MasterPageTeste.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web Forms\MasterPageTeste.aspx.designer.cs">
+    <Compile Include="Webforms.OLD\MasterPageTeste.aspx.designer.cs">
       <DependentUpon>MasterPageTeste.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web Forms\PagCadastro.aspx.cs">
-      <DependentUpon>PagCadastro.aspx</DependentUpon>
+    <Compile Include="Web Forms\SistemaGCA.aspx.cs">
+      <DependentUpon>SistemaGCA.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web Forms\PagCadastro.aspx.designer.cs">
-      <DependentUpon>PagCadastro.aspx</DependentUpon>
+    <Compile Include="Web Forms\SistemaGCA.aspx.designer.cs">
+      <DependentUpon>SistemaGCA.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web Forms\PagConsultar.aspx.cs">
+    <Compile Include="Webforms.OLD\PagConsultar.aspx.cs">
       <DependentUpon>PagConsultar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web Forms\PagConsultar.aspx.designer.cs">
+    <Compile Include="Webforms.OLD\PagConsultar.aspx.designer.cs">
       <DependentUpon>PagConsultar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web Forms\PagRelacionar.aspx.cs">
+    <Compile Include="Webforms.OLD\PagRelacionar.aspx.cs">
       <DependentUpon>PagRelacionar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web Forms\PagRelacionar.aspx.designer.cs">
+    <Compile Include="Webforms.OLD\PagRelacionar.aspx.designer.cs">
       <DependentUpon>PagRelacionar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Útil\Class1.cs" />

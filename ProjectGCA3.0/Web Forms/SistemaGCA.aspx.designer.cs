@@ -481,13 +481,13 @@ namespace ProjectGCA3._0.Web_Forms {
         protected global::System.Web.UI.WebControls.Button BtCancelarTipoLicenca;
         
         /// <summary>
-        /// Panel1 control.
+        /// PnlConsultar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Panel PnlConsultar;
         
         /// <summary>
         /// Label1 control.
@@ -526,13 +526,13 @@ namespace ProjectGCA3._0.Web_Forms {
         protected global::System.Web.UI.WebControls.LinkButton LnkConsultaChaves;
         
         /// <summary>
-        /// PnlUsuarios control.
+        /// PnlConsultarUsuarios control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PnlUsuarios;
+        protected global::System.Web.UI.WebControls.Panel PnlConsultarUsuarios;
         
         /// <summary>
         /// GridUsuarios control.
@@ -544,13 +544,13 @@ namespace ProjectGCA3._0.Web_Forms {
         protected global::Telerik.Web.UI.RadGrid GridUsuarios;
         
         /// <summary>
-        /// PnlMaquinas control.
+        /// PnlConsultarMaquinas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PnlMaquinas;
+        protected global::System.Web.UI.WebControls.Panel PnlConsultarMaquinas;
         
         /// <summary>
         /// GridMaquinas control.
@@ -562,13 +562,13 @@ namespace ProjectGCA3._0.Web_Forms {
         protected global::Telerik.Web.UI.RadGrid GridMaquinas;
         
         /// <summary>
-        /// PnlChaves control.
+        /// PnlConsultarChaves control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PnlChaves;
+        protected global::System.Web.UI.WebControls.Panel PnlConsultarChaves;
         
         /// <summary>
         /// GridChaves control.
@@ -578,6 +578,24 @@ namespace ProjectGCA3._0.Web_Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadGrid GridChaves;
+        
+        /// <summary>
+        /// PnlConsultarRelacionar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PnlConsultarRelacionar;
+        
+        /// <summary>
+        /// GridRelacionar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadGrid GridRelacionar;
         
         /// <summary>
         /// PnlRelacionar control.
@@ -596,6 +614,60 @@ namespace ProjectGCA3._0.Web_Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// DdlRelacionarUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlRelacionarUsuario;
+        
+        /// <summary>
+        /// DdlRelacionarMaquina control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlRelacionarMaquina;
+        
+        /// <summary>
+        /// DdlRelacionarSoftware control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlRelacionarSoftware;
+        
+        /// <summary>
+        /// DdlRelacionarChaveAtivacao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlRelacionarChaveAtivacao;
+        
+        /// <summary>
+        /// SalvarRelacionar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SalvarRelacionar;
+        
+        /// <summary>
+        /// CancelarRelacionar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CancelarRelacionar;
         
         /// <summary>
         /// HdfID control.

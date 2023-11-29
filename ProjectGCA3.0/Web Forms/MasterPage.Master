@@ -23,34 +23,29 @@
         <nav class="menu-lateral col-3 col-md-3 col-sm-3 h-100 d-flex align-items-center p-0">
             <ul>
                 <li class="item-menu">
-                    <a href="HomePage.aspx">
+                    <asp:LinkButton ID="HomePage" runat="server" OnClick="HomePage_Click" Text="teste">
                         <span class="icon"><i class="bi bi-house"></i></span>
                         <span class="txt-link">Início</span>
-                    </a>
+                    </asp:LinkButton>
                 </li>
                 <li class="item-menu">
-                    <asp:LinkButton ID="Teste" runat="server" OnClick="Teste_Click" Text="Teste"></asp:LinkButton>
-
-
-                    <asp:LinkButton ID="PagCadastro" runat="server" OnClick="PagCadastro_Click">
+                    <asp:LinkButton ID="PagConsultar" runat="server" OnClick="PagConsultar_Click">
                         <span class="icon"><i class="bi bi-search"></i></span>
                         <span class="txt-link">Consultar</span>
                     </asp:LinkButton>
-
                 </li>
                 <li class="item-menu">
-                    <a href="PagCadastro.aspx">
+                    <asp:LinkButton ID="PagRelacionar" runat="server" OnClick="PagRelacionar_Click">
                         <span class="icon"><i class="bi bi-bezier2"></i></span>
                         <span class="txt-link">Relacionar</span>
-                    </a>
+                    </asp:LinkButton>
                 </li>
                 <li class="item-menu">
-                    <a class="last__menu-item" href="PagCadastro.aspx">
+                    <asp:LinkButton ID="PagCadastro" class="last__menu-item" runat="server" OnClick="PagCadastro_Click">
                         <span class="icon"><i class="bi bi-plus-lg"></i></span>
                         <span class="txt-link">Cadastro</span>
-                    </a>
+                    </asp:LinkButton>
                 </li>
-
             </ul>
         </nav>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
