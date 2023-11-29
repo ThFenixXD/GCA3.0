@@ -17,7 +17,7 @@ namespace ProjectGCA3._0.Web_Forms
             PnlCadastroOpcoes.Visible = false;
             PnlUsuarios.Visible = false;
             PnlMaquinas.Visible = false;
-            //PnlChaves.Visible = false;
+            PnlChaves.Visible = false;
         }
 
         protected void AtualizaGridUsuarios(string Query)
@@ -28,14 +28,14 @@ namespace ProjectGCA3._0.Web_Forms
 
         protected void AtualizaGridMaquinas(string Query)
         {
-            GridUsuarios.DataSource = Framework.GetDataTable(Query);
-            GridUsuarios.DataBind();
+            GridMaquinas.DataSource = Framework.GetDataTable(Query);
+            GridMaquinas.DataBind();
         }
 
         protected void AtualizaGridChaves(string Query)
         {
-            GridUsuarios.DataSource = Framework.GetDataTable(Query);
-            GridUsuarios.DataBind();
+            GridChaves.DataSource = Framework.GetDataTable(Query);
+            GridChaves.DataBind();
         }
 
         #endregion
@@ -56,12 +56,13 @@ namespace ProjectGCA3._0.Web_Forms
             AtualizaGridMaquinas("SELECT ID_Maquina, ID_Maquina, NomeMaquina, SetorMaquina FROM tb_Maquinas WHERE Deleted = 0");
         }
 
-        //protected void lnkChaves_Click(object sender, EventArgs e)
-        //{
-        //    EscondePaineis();
-        //    PnlChaves.Visible = true;
-        //    AtualizaGridChaves("SELECT ID_ChaveAtivacao, NomeSoftware, Fabricante, TipoLicenca, PrazoLicenca, ChaveAtivacao FROM tb_Chaves WHERE Deleted = 0");
-        //}
+        protected void lnkChaves_Click(object sender, EventArgs e)
+        {
+            EscondePaineis();
+            PnlChaves.Visible = true;
+            AtualizaGridChaves("SELECT ID_ChaveAtivacao, NomeSoftware, Fabricante, TipoLicenca, PrazoLicenca, ChaveAtivacao FROM tb_Chaves WHERE Deleted = 0");
+        }
+
 
         #endregion
 
@@ -81,9 +82,10 @@ namespace ProjectGCA3._0.Web_Forms
 
         protected void GridChaves_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
-            GridChaves.DataSource = Framework.GetDataTable("SELECT ID_ChaveAtivacao, NomeSoftware, Fabricante, TipoLicenca, PrazoLicenca, ChaveAtivacao FROM tb_Maquinas WHERE Deleted = 0");
+            GridChaves.DataSource = Framework.GetDataTable("SELECT ID_ChaveAtivacao, ID_ChaveAtivacao, NomeSoftware, Fabricante, TipoLicenca, PrazoLicenca, ChaveAtivacao FROM tb_Chaves WHERE Deleted = 0");
             GridChaves.DataBind();
         }
+
         #endregion
 
         #region ItemCommand
@@ -172,43 +174,7 @@ namespace ProjectGCA3._0.Web_Forms
 
         protected void GridChaves_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
-            try
-            {
-                int _cdID = Convert.ToInt32(e.Item.OwnerTableView.DataKeyValues[e.Item.ItemIndex]["ID_ChaveAtivacao"]);
 
-                switch (e.CommandName)
-                {
-                    case "opSelecionar":
-                        break;
-
-                    case "opEditar":
-                        //EscondePaineis();
-                        //LimpaCampos();
-                        //PopulaCampos(_cdID);
-                        //PnlCadastroCategorias.Visible = true;
-                        break;
-
-                    case "opExcluir":
-                        //using (EmpresaXEntities ctx = new EmpresaXEntities())
-                        //{
-                        //    tb_Categorias Categoria = new tb_Categorias();
-
-                        //    int ID = _cdID;
-                        //    HdfID.Value = _cdID.ToString();
-
-                        //    var Query = (from objCategoria in ctx.tb_Categorias where objCategoria.ID_Categoria == ID select objCategoria).FirstOrDefault();
-
-                        //    Query.Deleted = 1;
-                        //    ctx.SaveChanges();
-                        //    AtualizaGrid();
-                        //}
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("Erro, " + ex.Message);
-            }
         }
         #endregion
 
@@ -218,9 +184,5 @@ namespace ProjectGCA3._0.Web_Forms
 
         }
         #endregion
-
-       
-
-        
     }
 }

@@ -24,7 +24,7 @@
                 </asp:LinkButton>
             </div>
             <div class="opcoes-item col-12 col-md-12 col-sm-12">
-                <asp:LinkButton ID="lnkChaves" CssClass="LnkButton border d-flex m-auto" runat="server" OnClick="lnkChaves_Click" >
+                <asp:LinkButton ID="lnkChaves" CssClass="LnkButton border d-flex m-auto" runat="server" OnClick="lnkChaves_Click">
                     <span class="icon"><i class="bi bi-key"></i></span>
                     <span class="txt-link text-start">Chaves de Ativação</span>
                 </asp:LinkButton>
@@ -76,7 +76,7 @@
     </asp:Panel>
 
     <asp:Panel ID="PnlChaves" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
-        <telerik:RadGrid ID="GridChaves" runat="server" AutoGenerateColumns="false" OnNeedDataSource="GridChaves_NeedDataSource" OnItemCommand="GridChaves_ItemCommand">
+        <telerik:RadGrid ID="GridChaves" runat="server" AutoGenerateColumns="false" OnNeedDataSource="GridChaves_NeedDataSource" OnItemCommand="GridChaves_ItemCommand" >
             <GroupingSettings CollapseAllTooltip="collaps all columns" />
             <MasterTableView DataKeyNames="ID_ChaveAtivacao">
                 <Columns>
@@ -88,11 +88,11 @@
                         </ItemTemplate>
                     </telerik:GridTemplateColumn>
                     <telerik:GridBoundColumn UniqueName="col_CodChaveAtivacao" DataField="ID_ChaveAtivacao" HeaderText="COD"></telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn UniqueName="col_NomeSoftware" DataField="NomeSoftware" HeaderText="Nome do Software"></telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn UniqueName="col_Fabricante" DataField="Fabricante" HeaderText="Fabricante"></telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn UniqueName="col_TipoLicenca" DataField="TipoLicenca" HeaderText="Tipo de Licenca"></telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn UniqueName="col_PrazoLicenca" DataField="PrazoLicenca" HeaderText="Prazo de Licenca"></telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn UniqueName="col_ChaveAtivacao" DataField="ChaveAtivacao" HeaderText="Chave de Ativação"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_NomeSoftware" DataField="NomeSoftware" HeaderText="SOFTWARE"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_Fabricante" DataField="Fabricante" HeaderText="FABRICANTE"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_TipoLicenca" DataField="TipoLicenca" HeaderText="TIPO DE LICENÇA"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_PrazoLicenca" DataField="PrazoLicenca" HeaderText="PRAZO DE LICENÇA"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_ChaveAtivacao" DataField="ChaveAtivacao" HeaderText="CHAVE DE ATIVAÇÃO"></telerik:GridBoundColumn>
                 </Columns>
             </MasterTableView>
         </telerik:RadGrid>
