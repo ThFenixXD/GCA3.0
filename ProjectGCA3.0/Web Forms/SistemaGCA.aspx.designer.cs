@@ -526,6 +526,15 @@ namespace ProjectGCA3._0.Web_Forms {
         protected global::System.Web.UI.WebControls.LinkButton LnkConsultaChaves;
         
         /// <summary>
+        /// LnkConsultaRelacionar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LnkConsultaRelacionar;
+        
+        /// <summary>
         /// PnlConsultarUsuarios control.
         /// </summary>
         /// <remarks>

@@ -25,7 +25,7 @@ namespace ProjectGCA3._0.Web_Forms
             PnlConsultarUsuarios.Visible =
             PnlConsultarMaquinas.Visible =
             PnlConsultarChaves.Visible =
-            PnlConsultarRelacionar.Visible
+            PnlConsultarRelacionar.Visible =
             PnlRelacionar.Visible = false;
         }
 
@@ -91,27 +91,27 @@ namespace ProjectGCA3._0.Web_Forms
             DdlRelacionarChaveAtivacao.Items.Insert(0, new ListItem("Selecionar"));
         }
 
-        protected void AtualizaGridUsuarios(string Query)
+        protected void AtualizaGridUsuarios()
         {
-            GridUsuarios.DataSource = Framework.GetDataTable(Query);
+            GridUsuarios.DataSource = Framework.GetDataTable("SELECT ID_Usuario, ID_Usuario, NomeUsuario, FuncaoUsuario, ID_Setor, SetorUsuario FROM tb_Usuarios WHERE Status = 1 AND Deleted = 0");
             GridUsuarios.DataBind();
         }
 
-        protected void AtualizaGridMaquinas(string Query)
+        protected void AtualizaGridMaquinas()
         {
-            GridMaquinas.DataSource = Framework.GetDataTable(Query);
+            GridMaquinas.DataSource = Framework.GetDataTable("SELECT ID_Maquina, ID_Maquina, NomeMaquina, ID_Setor, SetorMaquina FROM tb_Maquinas WHERE Deleted = 0");
             GridMaquinas.DataBind();
         }
 
-        protected void AtualizaGridChaves(string Query)
+        protected void AtualizaGridChaves()
         {
-            GridChaves.DataSource = Framework.GetDataTable(Query);
+            GridChaves.DataSource = Framework.GetDataTable("SELECT ID_ChaveAtivacao, NomeSoftware, Fabricante, TipoLicenca, PrazoLicenca, ChaveAtivacao FROM tb_Chaves WHERE Deleted = 0");
             GridChaves.DataBind();
         }
 
-        protected void AtualizaGridRelacionar(String Query)
+        protected void AtualizaGridRelacionar()
         {
-            GridRelacionar.DataSource = Framework.GetDataTable(Query);
+            GridRelacionar.DataSource = Framework.GetDataTable("SELECT ID_UsuarioRelacionar, UsuarioRelacionar, MaquinaRelacionar, ChaveAtivacaoRelacionar FROM tb_Relacionar WHERE Deleted = 0");
             GridRelacionar.DataBind();
         }
 
@@ -180,7 +180,8 @@ namespace ProjectGCA3._0.Web_Forms
                         ctx.SaveChanges();
                         EscondePaineis();
                         LimpaCampos();
-                        PnlCadastroOpcoes.Visible = true;
+                        PnlConsultarUsuarios.Visible = true;
+                        AtualizaGridUsuarios();
                     }
                 }
                 catch (Exception ex)
@@ -226,7 +227,8 @@ namespace ProjectGCA3._0.Web_Forms
                         ctx.SaveChanges();
                         EscondePaineis();
                         LimpaCampos();
-                        PnlCadastroOpcoes.Visible = true;
+                        PnlConsultarMaquinas.Visible = true;
+                        AtualizaGridMaquinas();
                     }
                 }
                 catch (Exception ex)
@@ -242,7 +244,7 @@ namespace ProjectGCA3._0.Web_Forms
             PnlCadastroOpcoes.Visible = true;
         }
 
-        protected void BtSalvarSetor_Click(object sender, EventArgs e)
+        protected void BtSalvarSetor_Click(object sender, EventArgs e) /*REVISAR PAINEL*/
         {
             using (GCAEntities ctx = new GCAEntities())
             {
@@ -318,7 +320,8 @@ namespace ProjectGCA3._0.Web_Forms
                         ctx.SaveChanges();
                         EscondePaineis();
                         LimpaCampos();
-                        PnlCadastroOpcoes.Visible = true;
+                        PnlConsultarChaves.Visible = true;
+                        AtualizaGridChaves();
                     }
                 }
                 catch (Exception ex)
@@ -369,7 +372,7 @@ namespace ProjectGCA3._0.Web_Forms
                     Response.Write("Erro, " + ex.Message);
                 }
             }
-        }
+        } /*REVISAR PAINEL*/
 
         protected void BtCancelarTipoLicenca_Click(object sender, EventArgs e)
         {
@@ -381,21 +384,28 @@ namespace ProjectGCA3._0.Web_Forms
         {
             EscondePaineis();
             PnlConsultarUsuarios.Visible = true;
-            AtualizaGridUsuarios("SELECT ID_Usuario, ID_Usuario, NomeUsuario, FuncaoUsuario, SetorUsuario FROM tb_Usuarios WHERE Status = 1 AND Deleted = 0");
+            AtualizaGridUsuarios();
         }
 
         protected void LnkConsultaMaquina_Click(object sender, EventArgs e)
         {
             EscondePaineis();
             PnlConsultarMaquinas.Visible = true;
-            AtualizaGridMaquinas("SELECT ID_Maquina, ID_Maquina, NomeMaquina, SetorMaquina FROM tb_Maquinas WHERE Deleted = 0");
+            AtualizaGridMaquinas();
         }
 
         protected void LnkConsultaChaves_Click(object sender, EventArgs e)
         {
             EscondePaineis();
             PnlConsultarChaves.Visible = true;
-            AtualizaGridChaves("SELECT ID_ChaveAtivacao, NomeSoftware, Fabricante, TipoLicenca, PrazoLicenca, ChaveAtivacao FROM tb_Chaves WHERE Deleted = 0");
+            AtualizaGridChaves();
+        }
+
+        protected void LnkConsultaRelacionar_Click(object sender, EventArgs e)
+        {
+            EscondePaineis();
+            PnlConsultarRelacionar.Visible = true;
+            AtualizaGridRelacionar();
         }
 
         protected void CancelarRelacionar_Click(object sender, EventArgs e)
@@ -408,14 +418,14 @@ namespace ProjectGCA3._0.Web_Forms
         {
             using (GCAEntities ctx = new GCAEntities())
             {
-                tb_Relacionamento Usuario = new tb_Relacionamento();
+                tb_Relacionar Usuario = new tb_Relacionar();
                 try
                 {
                     if (!string.IsNullOrEmpty(HdfID.Value))
                     {
                         int _id = Convert.ToInt32(HdfID.Value);
 
-                        var Query = (from objUsuario in ctx.tb_Relacionamento select objUsuario);
+                        var Query = (from objUsuario in ctx.tb_Relacionar select objUsuario);
 
                         Usuario = Query.FirstOrDefault();
                     }
@@ -424,18 +434,18 @@ namespace ProjectGCA3._0.Web_Forms
                         Usuario.UsuarioRelacionar = DdlRelacionarUsuario.SelectedItem.ToString();
                         Usuario.MaquinaRelacionar = DdlRelacionarMaquina.SelectedItem.ToString();
                         Usuario.SoftwareRelacionar = DdlRelacionarSoftware.SelectedItem.ToString();
-                        Usuario.ChaveAtivacaoRelacionar = DdlRelacionarChaveAtivacao.ToString();
+                        Usuario.ChaveAtivacaoRelacionar = DdlRelacionarChaveAtivacao.SelectedItem.ToString();
                         Usuario.Deleted = 0;
 
                         if (string.IsNullOrEmpty(HdfID.Value))
                         {
-                            ctx.tb_Relacionamento.Add(Usuario);
+                            ctx.tb_Relacionar.Add(Usuario);
                         }
                         ctx.SaveChanges();
                         EscondePaineis();
                         LimpaCampos();
-                        
-                        PnlCadastroOpcoes.Visible = true;
+                        PnlConsultarRelacionar.Visible = true;
+                        AtualizaGridRelacionar();
                     }
                 }
                 catch (Exception ex)
@@ -451,20 +461,22 @@ namespace ProjectGCA3._0.Web_Forms
 
         protected void GridUsuarios_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
-            GridUsuarios.DataSource = Framework.GetDataTable("SELECT ID_Usuario, ID_Usuario, NomeUsuario, FuncaoUsuario, SetorUsuario FROM tb_Usuarios WHERE Status = 1 AND Deleted = 0");
-            GridUsuarios.DataBind();
+            GridUsuarios.DataSource = Framework.GetDataTable("SELECT ID_Usuario, ID_Usuario, NomeUsuario, FuncaoUsuario, ID_Setor, SetorUsuario FROM tb_Usuarios WHERE Status = 1 AND Deleted = 0");
         }
 
         protected void GridMaquinas_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
-            GridMaquinas.DataSource = Framework.GetDataTable("SELECT ID_Maquina, ID_Maquina, NomeMaquina, SetorMaquina FROM tb_Maquinas WHERE Deleted = 0");
-            GridMaquinas.DataBind();
+            GridMaquinas.DataSource = Framework.GetDataTable("SELECT ID_Maquina, ID_Maquina, NomeMaquina, ID_Setor, SetorMaquina FROM tb_Maquinas WHERE Deleted = 0");
         }
 
         protected void GridChaves_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
             GridChaves.DataSource = Framework.GetDataTable("SELECT ID_ChaveAtivacao, ID_ChaveAtivacao, NomeSoftware, Fabricante, TipoLicenca, PrazoLicenca, ChaveAtivacao FROM tb_Chaves WHERE Deleted = 0");
-            GridChaves.DataBind();
+        }
+
+        protected void GridRelacionar_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
+        {
+            GridRelacionar.DataSource = Framework.GetDataTable("SELECT ID_UsuarioRelacionar, UsuarioRelacionar, MaquinaRelacionar, ChaveAtivacaoRelacionar FROM tb_Relacionar WHERE Deleted = 0");
         }
 
         #endregion
@@ -558,6 +570,11 @@ namespace ProjectGCA3._0.Web_Forms
 
         }
 
+        protected void GridRelacionar_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
+        {
+
+        }
+
         #endregion
 
         #region Page_Load
@@ -575,6 +592,7 @@ namespace ProjectGCA3._0.Web_Forms
                 PopulaDdlRelacionarChaveAtivacao();
             }
         }
+
         #endregion
 
         
