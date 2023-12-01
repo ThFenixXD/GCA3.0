@@ -19,11 +19,11 @@ namespace ProjectGCA3._0
         public string Fabricante { get; set; }
         public string TipoLicenca { get; set; }
         public string PrazoLicenca { get; set; }
-        public Nullable<int> ID_TipoLicenca { get; set; }
         public string ChaveAtivacao { get; set; }
         public Nullable<int> ID_Usuario { get; set; }
         public Nullable<int> ID_Maquina { get; set; }
-        public Nullable<int> Status { get; set; }
+        public Nullable<int> ID_TipoLicenca { get; set; }
+        public string Status { get; set; }
         public Nullable<int> Deleted { get; set; }
     }
 }

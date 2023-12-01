@@ -224,8 +224,8 @@
                 <Columns>
                     <telerik:GridTemplateColumn UniqueName="OP" AllowFiltering="false">
                         <ItemTemplate>
-                            <asp:Button ID="btEditar" runat="server" Text="editar" CommandName="opEditar" />
-                            <asp:Button ID="btexcluir" runat="server" Text="excluir" CommandName="opExcluir" />
+                            <asp:Button ID="btEditar" runat="server" Text="Editar" CommandName="opEditar" />
+                            <asp:Button ID="btexcluir" runat="server" Text="Excluir" CommandName="opExcluir" />
                         </ItemTemplate>
                     </telerik:GridTemplateColumn>
                     <telerik:GridBoundColumn UniqueName="col_CodUsuario" DataField="ID_Usuario" HeaderText="COD USUARIO"></telerik:GridBoundColumn>
@@ -245,14 +245,15 @@
                 <Columns>
                     <telerik:GridTemplateColumn UniqueName="OP" AllowFiltering="false">
                         <ItemTemplate>
-                            <asp:Button ID="btEditar" runat="server" Text="editar" CommandName="opEditar" />
-                            <asp:Button ID="btexcluir" runat="server" Text="excluir" CommandName="opExcluir" />
+                            <asp:Button ID="btEditar" runat="server" Text="Editar" CommandName="opEditar" />
+                            <asp:Button ID="btexcluir" runat="server" Text="Excluir" CommandName="opExcluir" />
                         </ItemTemplate>
                     </telerik:GridTemplateColumn>
                     <telerik:GridBoundColumn UniqueName="col_CodMaquina" DataField="ID_Maquina" HeaderText="COD"></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn UniqueName="col_NomeMaquina" DataField="NomeMaquina" HeaderText="NOME DA MÁQUINA"></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn UniqueName="col_CodSetor" DataField="ID_Setor" HeaderText="COD SETOR"></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn UniqueName="col_Setor" DataField="SetorMaquina" HeaderText="SETOR"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_Status" DataField="Status" HeaderText="STATUS"></telerik:GridBoundColumn>
                 </Columns>
             </MasterTableView>
         </telerik:RadGrid>
@@ -265,8 +266,8 @@
                 <Columns>
                     <telerik:GridTemplateColumn UniqueName="OP" AllowFiltering="false">
                         <ItemTemplate>
-                            <asp:Button ID="btEditar" runat="server" Text="editar" CommandName="opEditar" />
-                            <asp:Button ID="btexcluir" runat="server" Text="excluir" CommandName="opExcluir" />
+                            <asp:Button ID="btEditar" runat="server" Text="Editar" CommandName="opEditar" />
+                            <asp:Button ID="btexcluir" runat="server" Text="Excluir" CommandName="opExcluir" />
                         </ItemTemplate>
                     </telerik:GridTemplateColumn>
                     <telerik:GridBoundColumn UniqueName="col_CodChaveAtivacao" DataField="ID_ChaveAtivacao" HeaderText="COD"></telerik:GridBoundColumn>
@@ -275,6 +276,7 @@
                     <telerik:GridBoundColumn UniqueName="col_TipoLicenca" DataField="TipoLicenca" HeaderText="TIPO DE LICENÇA"></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn UniqueName="col_PrazoLicenca" DataField="PrazoLicenca" HeaderText="PRAZO DE LICENÇA"></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn UniqueName="col_ChaveAtivacao" DataField="ChaveAtivacao" HeaderText="CHAVE DE ATIVAÇÃO"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="col_Status" DataField="Status" HeaderText="STATUS"></telerik:GridBoundColumn>
                 </Columns>
             </MasterTableView>
         </telerik:RadGrid>
@@ -287,8 +289,8 @@
                 <Columns>
                     <telerik:GridTemplateColumn UniqueName="OP" AllowFiltering="false">
                         <ItemTemplate>
-                            <asp:Button ID="btEditar" runat="server" Text="editar" CommandName="opEditar" />
-                            <asp:Button ID="btexcluir" runat="server" Text="excluir" CommandName="opExcluir" />
+                            <asp:Button ID="btEditar" runat="server" Text="Editar" CommandName="opEditar" />
+                            <asp:Button ID="btexcluir" runat="server" Text="Excluir" CommandName="opExcluir" />
                         </ItemTemplate>
                     </telerik:GridTemplateColumn>
                     <telerik:GridBoundColumn UniqueName="col_NomeUsuario" DataField="UsuarioRelacionar" HeaderText="USUARIO"></telerik:GridBoundColumn>

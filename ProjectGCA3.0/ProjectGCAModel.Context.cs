@@ -27,9 +27,9 @@ namespace ProjectGCA3._0
     
         public virtual DbSet<tb_Chaves> tb_Chaves { get; set; }
         public virtual DbSet<tb_Maquinas> tb_Maquinas { get; set; }
+        public virtual DbSet<tb_Relacionar> tb_Relacionar { get; set; }
         public virtual DbSet<tb_Setores> tb_Setores { get; set; }
         public virtual DbSet<tb_TipoLicenca> tb_TipoLicenca { get; set; }
         public virtual DbSet<tb_Usuarios> tb_Usuarios { get; set; }
-        public virtual DbSet<tb_Relacionar> tb_Relacionar { get; set; }
     }
 }
