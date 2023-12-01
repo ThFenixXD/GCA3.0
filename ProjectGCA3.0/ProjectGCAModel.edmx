@@ -15,8 +15,6 @@
           <Property Name="TipoLicenca" Type="nvarchar" MaxLength="50" />
           <Property Name="PrazoLicenca" Type="nvarchar" MaxLength="50" />
           <Property Name="ChaveAtivacao" Type="nvarchar" MaxLength="50" />
-          <Property Name="ID_Usuario" Type="int" />
-          <Property Name="ID_Maquina" Type="int" />
           <Property Name="ID_TipoLicenca" Type="int" />
           <Property Name="Status" Type="nvarchar" MaxLength="50" />
           <Property Name="Deleted" Type="int" />
@@ -28,17 +26,15 @@
           <Property Name="ID_Maquina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NomeMaquina" Type="nvarchar" MaxLength="50" />
           <Property Name="SetorMaquina" Type="nvarchar" MaxLength="50" />
-          <Property Name="ID_Usuario" Type="int" />
           <Property Name="ID_Setor" Type="int" />
-          <Property Name="ID_Chave" Type="int" />
           <Property Name="Status" Type="nvarchar" MaxLength="50" />
           <Property Name="Deleted" Type="int" />
         </EntityType>
         <EntityType Name="tb_Relacionar">
           <Key>
-            <PropertyRef Name="ID_UsuarioRelacionar" />
+            <PropertyRef Name="ID_Relacionar" />
           </Key>
-          <Property Name="ID_UsuarioRelacionar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Relacionar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UsuarioRelacionar" Type="nvarchar" MaxLength="50" />
           <Property Name="MaquinaRelacionar" Type="nvarchar" MaxLength="50" />
           <Property Name="SoftwareRelacionar" Type="nvarchar" MaxLength="50" />
@@ -74,10 +70,7 @@
           <Property Name="NomeUsuario" Type="nvarchar" MaxLength="50" />
           <Property Name="FuncaoUsuario" Type="nvarchar" MaxLength="50" />
           <Property Name="SetorUsuario" Type="nvarchar" MaxLength="50" />
-          <Property Name="MaquinaUsuario" Type="nvarchar" MaxLength="50" />
-          <Property Name="ID_Maquina" Type="int" />
           <Property Name="ID_Setor" Type="int" />
-          <Property Name="ID_Chave" Type="int" />
           <Property Name="Deleted" Type="int" />
         </EntityType>
         <EntityContainer Name="ProjectGCAStoreContainer">
@@ -110,8 +103,6 @@
           <Property Name="TipoLicenca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PrazoLicenca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ChaveAtivacao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ID_Usuario" Type="Int32" />
-          <Property Name="ID_Maquina" Type="Int32" />
           <Property Name="ID_TipoLicenca" Type="Int32" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Deleted" Type="Int32" />
@@ -123,17 +114,15 @@
           <Property Name="ID_Maquina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NomeMaquina" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SetorMaquina" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ID_Usuario" Type="Int32" />
           <Property Name="ID_Setor" Type="Int32" />
-          <Property Name="ID_Chave" Type="Int32" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Deleted" Type="Int32" />
         </EntityType>
         <EntityType Name="tb_Relacionar">
           <Key>
-            <PropertyRef Name="ID_UsuarioRelacionar" />
+            <PropertyRef Name="ID_Relacionar" />
           </Key>
-          <Property Name="ID_UsuarioRelacionar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Relacionar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UsuarioRelacionar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MaquinaRelacionar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SoftwareRelacionar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -169,10 +158,7 @@
           <Property Name="NomeUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FuncaoUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SetorUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MaquinaUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ID_Maquina" Type="Int32" />
           <Property Name="ID_Setor" Type="Int32" />
-          <Property Name="ID_Chave" Type="Int32" />
           <Property Name="Deleted" Type="Int32" />
         </EntityType>
       </Schema>
@@ -187,8 +173,6 @@
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="ID_TipoLicenca" ColumnName="ID_TipoLicenca" />
-                <ScalarProperty Name="ID_Maquina" ColumnName="ID_Maquina" />
-                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
                 <ScalarProperty Name="ChaveAtivacao" ColumnName="ChaveAtivacao" />
                 <ScalarProperty Name="PrazoLicenca" ColumnName="PrazoLicenca" />
                 <ScalarProperty Name="TipoLicenca" ColumnName="TipoLicenca" />
@@ -203,9 +187,7 @@
               <MappingFragment StoreEntitySet="tb_Maquinas">
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="ID_Chave" ColumnName="ID_Chave" />
                 <ScalarProperty Name="ID_Setor" ColumnName="ID_Setor" />
-                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
                 <ScalarProperty Name="SetorMaquina" ColumnName="SetorMaquina" />
                 <ScalarProperty Name="NomeMaquina" ColumnName="NomeMaquina" />
                 <ScalarProperty Name="ID_Maquina" ColumnName="ID_Maquina" />
@@ -223,7 +205,7 @@
                 <ScalarProperty Name="SoftwareRelacionar" ColumnName="SoftwareRelacionar" />
                 <ScalarProperty Name="MaquinaRelacionar" ColumnName="MaquinaRelacionar" />
                 <ScalarProperty Name="UsuarioRelacionar" ColumnName="UsuarioRelacionar" />
-                <ScalarProperty Name="ID_UsuarioRelacionar" ColumnName="ID_UsuarioRelacionar" />
+                <ScalarProperty Name="ID_Relacionar" ColumnName="ID_Relacionar" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -251,10 +233,7 @@
             <EntityTypeMapping TypeName="ProjectGCA.tb_Usuarios">
               <MappingFragment StoreEntitySet="tb_Usuarios">
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-                <ScalarProperty Name="ID_Chave" ColumnName="ID_Chave" />
                 <ScalarProperty Name="ID_Setor" ColumnName="ID_Setor" />
-                <ScalarProperty Name="ID_Maquina" ColumnName="ID_Maquina" />
-                <ScalarProperty Name="MaquinaUsuario" ColumnName="MaquinaUsuario" />
                 <ScalarProperty Name="SetorUsuario" ColumnName="SetorUsuario" />
                 <ScalarProperty Name="FuncaoUsuario" ColumnName="FuncaoUsuario" />
                 <ScalarProperty Name="NomeUsuario" ColumnName="NomeUsuario" />

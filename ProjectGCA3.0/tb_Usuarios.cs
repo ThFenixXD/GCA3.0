@@ -18,10 +18,7 @@ namespace ProjectGCA3._0
         public string NomeUsuario { get; set; }
         public string FuncaoUsuario { get; set; }
         public string SetorUsuario { get; set; }
-        public string MaquinaUsuario { get; set; }
-        public Nullable<int> ID_Maquina { get; set; }
         public Nullable<int> ID_Setor { get; set; }
-        public Nullable<int> ID_Chave { get; set; }
         public Nullable<int> Deleted { get; set; }
     }
 }

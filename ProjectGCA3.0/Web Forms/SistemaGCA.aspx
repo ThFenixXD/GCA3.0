@@ -285,7 +285,7 @@
     <asp:Panel ID="PnlConsultarRelacionar" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
         <telerik:RadGrid ID="GridRelacionar" runat="server" AutoGenerateColumns="false" OnNeedDataSource="GridRelacionar_NeedDataSource" OnItemCommand="GridRelacionar_ItemCommand">
             <GroupingSettings CollapseAllTooltip="collaps all columns" />
-            <MasterTableView DataKeyNames="ID_UsuarioRelacionar">
+            <MasterTableView DataKeyNames="ID_Relacionar">
                 <Columns>
                     <telerik:GridTemplateColumn UniqueName="OP" AllowFiltering="false">
                         <ItemTemplate>

@@ -14,7 +14,7 @@ namespace ProjectGCA3._0
     
     public partial class tb_Relacionar
     {
-        public int ID_UsuarioRelacionar { get; set; }
+        public int ID_Relacionar { get; set; }
         public string UsuarioRelacionar { get; set; }
         public string MaquinaRelacionar { get; set; }
         public string SoftwareRelacionar { get; set; }

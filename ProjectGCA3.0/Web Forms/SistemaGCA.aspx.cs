@@ -112,7 +112,7 @@ namespace ProjectGCA3._0.Web_Forms
 
                 tb_Relacionar Chave = new tb_Relacionar();
 
-                var Query = (from objRelacionar in ctx.tb_Relacionar where objRelacionar.ID_UsuarioRelacionar == ID select objRelacionar).FirstOrDefault();
+                var Query = (from objRelacionar in ctx.tb_Relacionar where objRelacionar.ID_Relacionar == ID select objRelacionar).FirstOrDefault();
 
 
                 if (!string.IsNullOrEmpty(Query.ToString()))
@@ -162,17 +162,14 @@ namespace ProjectGCA3._0.Web_Forms
 
         protected void PopulaDdlRelacionarSoftware()
         {
-
             DdlRelacionarSoftware.DataSource = Framework.GetDataTable("SELECT ID_ChaveAtivacao, NomeSoftware FROM tb_Chaves WHERE ID_ChaveAtivacao IN (SELECT MIN(ID_ChaveAtivacao) FROM tb_Chaves WHERE Deleted = 0 GROUP BY NomeSoftware);");
             DdlRelacionarSoftware.DataBind();
             DdlRelacionarSoftware.Items.Insert(0, new ListItem("Selecionar"));
-            HdfID.Value = DdlRelacionarSoftware.SelectedItem.ToString();
-            
         }
 
         protected void PopulaDdlRelacionarChaveAtivacao()
         {
-            DdlRelacionarChaveAtivacao.DataSource = Framework.GetDataTable($"SELECT ID_ChaveAtivacao, ChaveAtivacao FROM tb_Chaves WHERE {DdlRelacionarSoftware.SelectedItem.ToString()} = NomeSoftware AND Deleted = 0");
+            DdlRelacionarChaveAtivacao.DataSource = Framework.GetDataTable($"SELECT ID_ChaveAtivacao, ChaveAtivacao FROM tb_Chaves WHERE {DdlRelacionarSoftware.SelectedItem} = NomeSoftware AND Deleted = 0");
             DdlRelacionarChaveAtivacao.DataBind();
             DdlRelacionarChaveAtivacao.Items.Insert(0, new ListItem("Selecionar"));
         }
@@ -197,7 +194,7 @@ namespace ProjectGCA3._0.Web_Forms
 
         protected void AtualizaGridRelacionar()
         {
-            GridRelacionar.DataSource = Framework.GetDataTable("SELECT ID_UsuarioRelacionar, UsuarioRelacionar, MaquinaRelacionar, ChaveAtivacaoRelacionar FROM tb_Relacionar WHERE Deleted = 0");
+            GridRelacionar.DataSource = Framework.GetDataTable("SELECT ID_Relacionar, UsuarioRelacionar, MaquinaRelacionar, ChaveAtivacaoRelacionar FROM tb_Relacionar WHERE Deleted = 0");
             GridRelacionar.DataBind();
         }
 
@@ -323,7 +320,7 @@ namespace ProjectGCA3._0.Web_Forms
                     Response.Write("Erro, " + ex.Message);
                 }
             }
-        }
+        }    /*REVISAR*/
 
         protected void BtCancelarMaquina_Click(object sender, EventArgs e)
         {
@@ -359,6 +356,8 @@ namespace ProjectGCA3._0.Web_Forms
                         EscondePaineis();
                         LimpaCampos();
                         PnlCadastroOpcoes.Visible = true;
+                        PopulaDdlSetorMaquina();
+                        PopulaDdlSetorUsuario();
                     }
                 }
                 catch (Exception ex)
@@ -454,6 +453,7 @@ namespace ProjectGCA3._0.Web_Forms
                         EscondePaineis();
                         LimpaCampos();
                         PnlCadastroOpcoes.Visible = true;
+                        PopulaDdlTipoLicenca();
                     }
                 }
                 catch (Exception ex)
@@ -634,7 +634,7 @@ namespace ProjectGCA3._0.Web_Forms
 
         protected void GridRelacionar_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
-            GridRelacionar.DataSource = Framework.GetDataTable("SELECT ID_UsuarioRelacionar, UsuarioRelacionar, MaquinaRelacionar, ChaveAtivacaoRelacionar FROM tb_Relacionar WHERE Deleted = 0");
+            GridRelacionar.DataSource = Framework.GetDataTable("SELECT ID_Relacionar, UsuarioRelacionar, MaquinaRelacionar, ChaveAtivacaoRelacionar FROM tb_Relacionar WHERE Deleted = 0");
         }
 
         #endregion
@@ -768,7 +768,7 @@ namespace ProjectGCA3._0.Web_Forms
         {
             try
             {
-                int _cdID = Convert.ToInt32(e.Item.OwnerTableView.DataKeyValues[e.Item.ItemIndex]["ID_UsuarioRelacionar"]);
+                int _cdID = Convert.ToInt32(e.Item.OwnerTableView.DataKeyValues[e.Item.ItemIndex]["ID_Relacionar"]);
 
                 switch (e.CommandName)
                 {
@@ -790,7 +790,7 @@ namespace ProjectGCA3._0.Web_Forms
                             int ID = _cdID;
                             HdfID.Value = _cdID.ToString();
 
-                            var Query = (from objRelacionar in ctx.tb_Relacionar where objRelacionar.ID_UsuarioRelacionar == ID select objRelacionar).FirstOrDefault();
+                            var Query = (from objRelacionar in ctx.tb_Relacionar where objRelacionar.ID_Relacionar == ID select objRelacionar).FirstOrDefault();
 
                             Query.Deleted = 1;
                             ctx.SaveChanges();
@@ -879,7 +879,6 @@ namespace ProjectGCA3._0.Web_Forms
                 PopulaDdlRelacionarUsuario();
                 PopulaDdlRelacionarMaquina();
                 PopulaDdlRelacionarSoftware();
-                //PopulaDdlRelacionarChaveAtivacao();
             }
         }
         #endregion
