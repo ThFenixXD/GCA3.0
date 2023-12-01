@@ -162,7 +162,8 @@ namespace ProjectGCA3._0.Web_Forms
 
         protected void PopulaDdlRelacionarSoftware()
         {
-            DdlRelacionarSoftware.DataSource = Framework.GetDataTable("SELECT ID_ChaveAtivacao, NomeSoftware FROM tb_Chaves WHERE Deleted = 0");
+
+            DdlRelacionarSoftware.DataSource = Framework.GetDataTable("SELECT ID_ChaveAtivacao, NomeSoftware FROM tb_Chaves WHERE ID_ChaveAtivacao IN (SELECT MIN(ID_ChaveAtivacao) FROM tb_Chaves WHERE Deleted = 0 GROUP BY NomeSoftware);");
             DdlRelacionarSoftware.DataBind();
             DdlRelacionarSoftware.Items.Insert(0, new ListItem("Selecionar"));
             HdfID.Value = DdlRelacionarSoftware.SelectedItem.ToString();
@@ -172,7 +173,6 @@ namespace ProjectGCA3._0.Web_Forms
         protected void PopulaDdlRelacionarChaveAtivacao()
         {
             DdlRelacionarChaveAtivacao.DataSource = Framework.GetDataTable($"SELECT ID_ChaveAtivacao, ChaveAtivacao FROM tb_Chaves WHERE {DdlRelacionarSoftware.SelectedItem.ToString()} = NomeSoftware AND Deleted = 0");
-            //DdlRelacionarChaveAtivacao.DataSource = Framework.GetDataTable("SELECT ID_ChaveAtivacao, ChaveAtivacao FROM tb_Chaves WHERE Deleted = 0");
             DdlRelacionarChaveAtivacao.DataBind();
             DdlRelacionarChaveAtivacao.Items.Insert(0, new ListItem("Selecionar"));
         }
