@@ -165,11 +165,14 @@ namespace ProjectGCA3._0.Web_Forms
             DdlRelacionarSoftware.DataSource = Framework.GetDataTable("SELECT ID_ChaveAtivacao, NomeSoftware FROM tb_Chaves WHERE Deleted = 0");
             DdlRelacionarSoftware.DataBind();
             DdlRelacionarSoftware.Items.Insert(0, new ListItem("Selecionar"));
+            HdfID.Value = DdlRelacionarSoftware.SelectedItem.ToString();
+            
         }
 
         protected void PopulaDdlRelacionarChaveAtivacao()
         {
-            DdlRelacionarChaveAtivacao.DataSource = Framework.GetDataTable("SELECT ID_ChaveAtivacao, ChaveAtivacao FROM tb_Chaves WHERE Deleted = 0");
+            DdlRelacionarChaveAtivacao.DataSource = Framework.GetDataTable($"SELECT ID_ChaveAtivacao, ChaveAtivacao FROM tb_Chaves WHERE {DdlRelacionarSoftware.SelectedItem.ToString()} = NomeSoftware AND Deleted = 0");
+            //DdlRelacionarChaveAtivacao.DataSource = Framework.GetDataTable("SELECT ID_ChaveAtivacao, ChaveAtivacao FROM tb_Chaves WHERE Deleted = 0");
             DdlRelacionarChaveAtivacao.DataBind();
             DdlRelacionarChaveAtivacao.Items.Insert(0, new ListItem("Selecionar"));
         }
@@ -605,7 +608,10 @@ namespace ProjectGCA3._0.Web_Forms
             AtualizaGridRelacionar();
         }
 
-        
+        protected void DdlRelacionarSoftware_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PopulaDdlRelacionarChaveAtivacao();
+        }
 
         #endregion
 
@@ -873,10 +879,9 @@ namespace ProjectGCA3._0.Web_Forms
                 PopulaDdlRelacionarUsuario();
                 PopulaDdlRelacionarMaquina();
                 PopulaDdlRelacionarSoftware();
-                PopulaDdlRelacionarChaveAtivacao();
+                //PopulaDdlRelacionarChaveAtivacao();
             }
         }
-
         #endregion
 
         

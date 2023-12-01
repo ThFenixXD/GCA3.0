@@ -323,7 +323,7 @@
                     <asp:Label CssClass="lbRelacionar col-4 col-md-4 col-sm-4 text-center" runat="server" Text="Chave de Ativação"></asp:Label>
                 </div>
                 <div class="row p-0 m-0 gap-4 justify-content-evenly">
-                    <asp:DropDownList ID="DdlRelacionarSoftware" CssClass="col-4 col-md-4 col-sm-4 text-center" runat="server" DataTextField="NomeSoftware" DataValueField="ID_ChaveAtivacao"></asp:DropDownList>
+                    <asp:DropDownList ID="DdlRelacionarSoftware" CssClass="col-4 col-md-4 col-sm-4 text-center" runat="server" DataTextField="NomeSoftware" DataValueField="ID_ChaveAtivacao" AutoPostBack="true" OnSelectedIndexChanged="DdlRelacionarSoftware_SelectedIndexChanged"></asp:DropDownList>
                     <asp:DropDownList ID="DdlRelacionarChaveAtivacao" CssClass="col-4 col-md-4 col-sm-4 text-center" runat="server" DataTextField="ChaveAtivacao" DataValueField="ID_ChaveAtivacao"></asp:DropDownList>
                 </div>
                 <div class="row gap-4 mt-5 justify-content-center">
