@@ -127,6 +127,9 @@
     <Compile Include="tb_Setores.cs">
       <DependentUpon>ProjectGCAModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="tb_Software.cs">
+      <DependentUpon>ProjectGCAModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="tb_TipoLicenca.cs">
       <DependentUpon>ProjectGCAModel.tt</DependentUpon>
     </Compile>

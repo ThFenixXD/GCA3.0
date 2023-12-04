@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -37,7 +39,7 @@ namespace ProjectGCA3._0.Web_Forms
             txtNomeSetor.Text =
             txtTipoLicenca.Text =
             txtPrazoLicenca.Text =
-            txtChaveAtivacao.Text =
+            DdlRelacionarChaveAtivacao.Text =
             HdfID.Value =
             string.Empty;
         }
@@ -94,11 +96,13 @@ namespace ProjectGCA3._0.Web_Forms
 
                 if (!string.IsNullOrEmpty(Query.ToString()))
                 {
-                    txtNomeSoftware.Text = Query.NomeSoftware;
-                    txtFabricante.Text = Query.Fabricante;
-                    ddlTipolicenca.SelectedValue = Query.ID_TipoLicenca.ToString();
-                    txtPrazoLicenca.Text = Query.PrazoLicenca;
-                    txtChaveAtivacao.Text = Query.ChaveAtivacao;
+                    txtDataDeCompra.Text = Query.DataDeCompra;
+                    
+                    
+
+
+
+
                 }
             }
         }
@@ -139,11 +143,11 @@ namespace ProjectGCA3._0.Web_Forms
             DdlSetorMaquina.Items.Insert(0, new ListItem("Selecionar"));
         }
 
-        protected void PopulaDdlTipoLicenca()
+        protected void PopulaDdlTipoDeLicenca()
         {
-            ddlTipolicenca.DataSource = Framework.GetDataTable("SELECT ID_TipoLicenca, TipoLicenca FROM tb_TipoLicenca WHERE Deleted = 0");
-            ddlTipolicenca.DataBind();
-            ddlTipolicenca.Items.Insert(0, new ListItem("Selecionar"));
+            DdlTipoDeLicenca.DataSource = Framework.GetDataTable("SELECT ID_TipoLicenca, TipoLicenca FROM tb_TipoLicenca WHERE Deleted = 0");
+            DdlTipoDeLicenca.DataBind();
+            DdlTipoDeLicenca.Items.Insert(0, new ListItem("Selecionar"));
         }
 
         protected void PopulaDdlRelacionarUsuario()
@@ -162,14 +166,21 @@ namespace ProjectGCA3._0.Web_Forms
 
         protected void PopulaDdlRelacionarSoftware()
         {
-            DdlRelacionarSoftware.DataSource = Framework.GetDataTable("SELECT ID_ChaveAtivacao, NomeSoftware FROM tb_Chaves WHERE ID_ChaveAtivacao IN (SELECT MIN(ID_ChaveAtivacao) FROM tb_Chaves WHERE Deleted = 0 GROUP BY NomeSoftware);");
+            DdlRelacionarSoftware.DataSource = Framework.GetDataTable("SELECT ID_Software, NomeSoftware FROM tb_Software WHERE Deleted = 0");
             DdlRelacionarSoftware.DataBind();
             DdlRelacionarSoftware.Items.Insert(0, new ListItem("Selecionar"));
         }
 
         protected void PopulaDdlRelacionarChaveAtivacao()
         {
-            DdlRelacionarChaveAtivacao.DataSource = Framework.GetDataTable($"SELECT ID_ChaveAtivacao, ChaveAtivacao FROM tb_Chaves WHERE {DdlRelacionarSoftware.SelectedItem} = NomeSoftware AND Deleted = 0");
+            DdlRelacionarChaveAtivacao.DataSource = Framework.GetDataTable("SELECT ID_ChaveAtivacao, ChaveAtivacao FROM tb_Chaves WHERE Deleted = 0");
+            DdlRelacionarChaveAtivacao.DataBind();
+            DdlRelacionarChaveAtivacao.Items.Insert(0, new ListItem("Selecionar"));
+        }
+
+        protected void PopulaDdlRelacionarChaveAtivacao(int _ID_ChaveAtivacao)
+        {
+            DdlRelacionarChaveAtivacao.DataSource = Framework.GetDataTable("SELECT ID_ChaveAtivacao, ChaveAtivacao FROM tb_Chaves WHERE ID_ChaveAtivacao = " + _ID_ChaveAtivacao + " AND Deleted = 0");
             DdlRelacionarChaveAtivacao.DataBind();
             DdlRelacionarChaveAtivacao.Items.Insert(0, new ListItem("Selecionar"));
         }
@@ -218,6 +229,12 @@ namespace ProjectGCA3._0.Web_Forms
         {
             EscondePaineis();
             PnlCadastroSetor.Visible = true;
+        }
+
+        protected void lnkSoftware_Click(object sender, EventArgs e)
+        {
+            EscondePaineis();
+            PnlSoftware.Visible = true;
         }
 
         protected void lnkChaves_Click(object sender, EventArgs e)
@@ -320,7 +337,7 @@ namespace ProjectGCA3._0.Web_Forms
                     Response.Write("Erro, " + ex.Message);
                 }
             }
-        }    /*REVISAR*/
+        }   
 
         protected void BtCancelarMaquina_Click(object sender, EventArgs e)
         {
@@ -328,7 +345,7 @@ namespace ProjectGCA3._0.Web_Forms
             PnlCadastroOpcoes.Visible = true;
         }
 
-        protected void BtSalvarSetor_Click(object sender, EventArgs e) 
+        protected void BtSalvarSetor_Click(object sender, EventArgs e)
         {
             using (GCAEntities ctx = new GCAEntities())
             {
@@ -373,6 +390,50 @@ namespace ProjectGCA3._0.Web_Forms
             PnlCadastroOpcoes.Visible = true;
         }
 
+        protected void BtSalvarSoftware_Click(object sender, EventArgs e)
+        {
+            using (GCAEntities ctx = new GCAEntities())
+            {
+                tb_Software Software = new tb_Software();
+                try
+                {
+                    if (!string.IsNullOrEmpty(HdfID.Value))
+                    {
+                        int _id = Convert.ToInt32(HdfID.Value);
+
+                        var Query = (from objSoftware in ctx.tb_Software select objSoftware);
+
+                        Software = Query.FirstOrDefault();
+                    }
+                    else
+                    {
+                        Software.NomeSoftware = txtNomeSoftware.Text;
+                        Software.Fabricante = txtFabricante.Text;
+                        Software.Deleted = 0;
+
+                        if (string.IsNullOrEmpty(HdfID.Value))
+                        {
+                            ctx.tb_Software.Add(Software);
+                        }
+                        ctx.SaveChanges();
+                        EscondePaineis();
+                        LimpaCampos();
+                        PnlCadastroOpcoes.Visible = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("Erro, " + ex.Message);
+                }
+            }
+        }
+
+        protected void BtCancelarSoftware_Click(object sender, EventArgs e)
+        {
+            EscondePaineis();
+            PnlCadastroOpcoes.Visible = true;
+        }
+
         protected void BtSalvarChaveAtivacao_Click(object sender, EventArgs e)
         {
             using (GCAEntities ctx = new GCAEntities())
@@ -390,13 +451,10 @@ namespace ProjectGCA3._0.Web_Forms
                     }
                     else
                     {
-                        Chave.NomeSoftware = txtNomeSoftware.Text;
-                        Chave.Fabricante = txtFabricante.Text;
-                        Chave.TipoLicenca = ddlTipolicenca.SelectedItem.ToString();
-                        Chave.ID_TipoLicenca = Convert.ToInt32(ddlTipolicenca.SelectedValue);
-                        Chave.PrazoLicenca = txtPrazoLicenca.Text;
-                        Chave.ChaveAtivacao = txtChaveAtivacao.Text;
-                        Chave.Status = "INATIVA";
+                        Chave.DataDeCompra = txtDataDeCompra.Text;
+                        Chave.TipoDeLicenca = DdlTipoDeLicenca.Text;
+                        Chave.PrazoDeLicenca = txtPrazoLicenca.Text;
+                        Chave.Status = 0;
                         Chave.Deleted = 0;
 
                         if (string.IsNullOrEmpty(HdfID.Value))
@@ -421,8 +479,7 @@ namespace ProjectGCA3._0.Web_Forms
 
         protected void BtCancelarChaveAtivacao_Click(object sender, EventArgs e)
         {
-            EscondePaineis();
-            PnlCadastroOpcoes.Visible = true;
+            
         }
 
         protected void BtSalvarTipoLicenca_Click(object sender, EventArgs e)
@@ -453,7 +510,7 @@ namespace ProjectGCA3._0.Web_Forms
                         EscondePaineis();
                         LimpaCampos();
                         PnlCadastroOpcoes.Visible = true;
-                        PopulaDdlTipoLicenca();
+                        PopulaDdlTipoDeLicenca();
                     }
                 }
                 catch (Exception ex)
@@ -461,7 +518,7 @@ namespace ProjectGCA3._0.Web_Forms
                     Response.Write("Erro, " + ex.Message);
                 }
             }
-        } 
+        }
 
         protected void BtCancelarTipoLicenca_Click(object sender, EventArgs e)
         {
@@ -562,7 +619,7 @@ namespace ProjectGCA3._0.Web_Forms
                     }
                     else
                     {
-                        Chave.Status = "ATIVA";
+                        Chave.Status = 1;
 
                         if (string.IsNullOrEmpty(HdfID.Value))
                         {
@@ -610,7 +667,7 @@ namespace ProjectGCA3._0.Web_Forms
 
         protected void DdlRelacionarSoftware_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PopulaDdlRelacionarChaveAtivacao();
+            PopulaDdlRelacionarChaveAtivacao(Convert.ToInt32(DdlRelacionarSoftware.SelectedValue));
         }
 
         #endregion
@@ -811,7 +868,7 @@ namespace ProjectGCA3._0.Web_Forms
                                 }
                                 else
                                 {
-                                    Chave.Status = "INATIVA";
+                                    Chave.Status = 0;
 
                                     if (string.IsNullOrEmpty(HdfID.Value))
                                     {
@@ -841,7 +898,7 @@ namespace ProjectGCA3._0.Web_Forms
                                 }
                                 else
                                 {
-                                    Maquina.Status = "INATIVA";
+                                    Maquina.Status = "1";
 
                                     if (string.IsNullOrEmpty(HdfID.Value))
                                     {
@@ -875,14 +932,16 @@ namespace ProjectGCA3._0.Web_Forms
             {
                 PopulaDdlSetorUsuario();
                 PopulaDdlSetorMaquina();
-                PopulaDdlTipoLicenca();
+                PopulaDdlTipoDeLicenca();
                 PopulaDdlRelacionarUsuario();
                 PopulaDdlRelacionarMaquina();
                 PopulaDdlRelacionarSoftware();
             }
         }
+
+
         #endregion
 
-        
+
     }
 }

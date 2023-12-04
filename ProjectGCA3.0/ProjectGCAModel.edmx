@@ -10,13 +10,13 @@
             <PropertyRef Name="ID_ChaveAtivacao" />
           </Key>
           <Property Name="ID_ChaveAtivacao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NomeSoftware" Type="nvarchar" MaxLength="50" />
-          <Property Name="Fabricante" Type="nvarchar" MaxLength="50" />
-          <Property Name="TipoLicenca" Type="nvarchar" MaxLength="50" />
-          <Property Name="PrazoLicenca" Type="nvarchar" MaxLength="50" />
-          <Property Name="ChaveAtivacao" Type="nvarchar" MaxLength="50" />
-          <Property Name="ID_TipoLicenca" Type="int" />
-          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="DataDeCompra" Type="nvarchar" MaxLength="50" />
+          <Property Name="TipoDeLicenca" Type="nvarchar" MaxLength="50" />
+          <Property Name="PrazoDeLicenca" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_Software" Type="int" />
+          <Property Name="Software" Type="nvarchar" MaxLength="50" />
+          <Property Name="ChaveDeAtivacao" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
           <Property Name="Deleted" Type="int" />
         </EntityType>
         <EntityType Name="tb_Maquinas">
@@ -35,13 +35,13 @@
             <PropertyRef Name="ID_Relacionar" />
           </Key>
           <Property Name="ID_Relacionar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Usuario" Type="int" />
           <Property Name="UsuarioRelacionar" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_Maquina" Type="int" />
           <Property Name="MaquinaRelacionar" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_ChaveAtivacao" Type="int" />
           <Property Name="SoftwareRelacionar" Type="nvarchar" MaxLength="50" />
           <Property Name="ChaveAtivacaoRelacionar" Type="nvarchar" MaxLength="50" />
-          <Property Name="ID_Usuario" Type="int" />
-          <Property Name="ID_Maquina" Type="int" />
-          <Property Name="ID_ChaveAtivacao" Type="int" />
           <Property Name="Deleted" Type="int" />
         </EntityType>
         <EntityType Name="tb_Setores">
@@ -50,8 +50,15 @@
           </Key>
           <Property Name="ID_Setor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NomeSetor" Type="nvarchar" MaxLength="50" />
-          <Property Name="ID_Maquina" Type="int" />
-          <Property Name="ID_Usuario" Type="int" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_Software">
+          <Key>
+            <PropertyRef Name="ID_Software" />
+          </Key>
+          <Property Name="ID_Software" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeSoftware" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fabricante" Type="nvarchar" MaxLength="50" />
           <Property Name="Deleted" Type="int" />
         </EntityType>
         <EntityType Name="tb_TipoLicenca">
@@ -78,6 +85,7 @@
           <EntitySet Name="tb_Maquinas" EntityType="Self.tb_Maquinas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Relacionar" EntityType="Self.tb_Relacionar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Setores" EntityType="Self.tb_Setores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Software" EntityType="Self.tb_Software" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_TipoLicenca" EntityType="Self.tb_TipoLicenca" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Usuarios" EntityType="Self.tb_Usuarios" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -86,27 +94,14 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ProjectGCA" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="GCAEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tb_Chaves" EntityType="ProjectGCA.tb_Chaves" />
           <EntitySet Name="tb_Maquinas" EntityType="ProjectGCA.tb_Maquinas" />
           <EntitySet Name="tb_Relacionar" EntityType="ProjectGCA.tb_Relacionar" />
           <EntitySet Name="tb_Setores" EntityType="ProjectGCA.tb_Setores" />
+          <EntitySet Name="tb_Software" EntityType="ProjectGCA.tb_Software" />
           <EntitySet Name="tb_TipoLicenca" EntityType="ProjectGCA.tb_TipoLicenca" />
           <EntitySet Name="tb_Usuarios" EntityType="ProjectGCA.tb_Usuarios" />
+          <EntitySet Name="tb_Chaves" EntityType="ProjectGCA.tb_Chaves" />
         </EntityContainer>
-        <EntityType Name="tb_Chaves">
-          <Key>
-            <PropertyRef Name="ID_ChaveAtivacao" />
-          </Key>
-          <Property Name="ID_ChaveAtivacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NomeSoftware" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Fabricante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TipoLicenca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PrazoLicenca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ChaveAtivacao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ID_TipoLicenca" Type="Int32" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Deleted" Type="Int32" />
-        </EntityType>
         <EntityType Name="tb_Maquinas">
           <Key>
             <PropertyRef Name="ID_Maquina" />
@@ -123,13 +118,13 @@
             <PropertyRef Name="ID_Relacionar" />
           </Key>
           <Property Name="ID_Relacionar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Usuario" Type="Int32" />
           <Property Name="UsuarioRelacionar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Maquina" Type="Int32" />
           <Property Name="MaquinaRelacionar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_ChaveAtivacao" Type="Int32" />
           <Property Name="SoftwareRelacionar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ChaveAtivacaoRelacionar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ID_Usuario" Type="Int32" />
-          <Property Name="ID_Maquina" Type="Int32" />
-          <Property Name="ID_ChaveAtivacao" Type="Int32" />
           <Property Name="Deleted" Type="Int32" />
         </EntityType>
         <EntityType Name="tb_Setores">
@@ -138,8 +133,15 @@
           </Key>
           <Property Name="ID_Setor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NomeSetor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ID_Maquina" Type="Int32" />
-          <Property Name="ID_Usuario" Type="Int32" />
+          <Property Name="Deleted" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_Software">
+          <Key>
+            <PropertyRef Name="ID_Software" />
+          </Key>
+          <Property Name="ID_Software" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeSoftware" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fabricante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Deleted" Type="Int32" />
         </EntityType>
         <EntityType Name="tb_TipoLicenca">
@@ -161,27 +163,26 @@
           <Property Name="ID_Setor" Type="Int32" />
           <Property Name="Deleted" Type="Int32" />
         </EntityType>
-      </Schema>
+        <EntityType Name="tb_Chaves">
+          <Key>
+            <PropertyRef Name="ID_ChaveAtivacao" />
+          </Key>
+          <Property Name="ID_ChaveAtivacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataDeCompra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TipoDeLicenca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Software" Type="Int32" />
+          <Property Name="Software" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ChaveDeAtivacao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrazoDeLicenca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Deleted" Type="Int32" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ProjectGCAStoreContainer" CdmEntityContainer="GCAEntities">
-          <EntitySetMapping Name="tb_Chaves">
-            <EntityTypeMapping TypeName="ProjectGCA.tb_Chaves">
-              <MappingFragment StoreEntitySet="tb_Chaves">
-                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="ID_TipoLicenca" ColumnName="ID_TipoLicenca" />
-                <ScalarProperty Name="ChaveAtivacao" ColumnName="ChaveAtivacao" />
-                <ScalarProperty Name="PrazoLicenca" ColumnName="PrazoLicenca" />
-                <ScalarProperty Name="TipoLicenca" ColumnName="TipoLicenca" />
-                <ScalarProperty Name="Fabricante" ColumnName="Fabricante" />
-                <ScalarProperty Name="NomeSoftware" ColumnName="NomeSoftware" />
-                <ScalarProperty Name="ID_ChaveAtivacao" ColumnName="ID_ChaveAtivacao" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tb_Maquinas">
             <EntityTypeMapping TypeName="ProjectGCA.tb_Maquinas">
               <MappingFragment StoreEntitySet="tb_Maquinas">
@@ -198,13 +199,13 @@
             <EntityTypeMapping TypeName="ProjectGCA.tb_Relacionar">
               <MappingFragment StoreEntitySet="tb_Relacionar">
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-                <ScalarProperty Name="ID_ChaveAtivacao" ColumnName="ID_ChaveAtivacao" />
-                <ScalarProperty Name="ID_Maquina" ColumnName="ID_Maquina" />
-                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
                 <ScalarProperty Name="ChaveAtivacaoRelacionar" ColumnName="ChaveAtivacaoRelacionar" />
                 <ScalarProperty Name="SoftwareRelacionar" ColumnName="SoftwareRelacionar" />
+                <ScalarProperty Name="ID_ChaveAtivacao" ColumnName="ID_ChaveAtivacao" />
                 <ScalarProperty Name="MaquinaRelacionar" ColumnName="MaquinaRelacionar" />
+                <ScalarProperty Name="ID_Maquina" ColumnName="ID_Maquina" />
                 <ScalarProperty Name="UsuarioRelacionar" ColumnName="UsuarioRelacionar" />
+                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
                 <ScalarProperty Name="ID_Relacionar" ColumnName="ID_Relacionar" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -213,10 +214,18 @@
             <EntityTypeMapping TypeName="ProjectGCA.tb_Setores">
               <MappingFragment StoreEntitySet="tb_Setores">
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
-                <ScalarProperty Name="ID_Maquina" ColumnName="ID_Maquina" />
                 <ScalarProperty Name="NomeSetor" ColumnName="NomeSetor" />
                 <ScalarProperty Name="ID_Setor" ColumnName="ID_Setor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Software">
+            <EntityTypeMapping TypeName="ProjectGCA.tb_Software">
+              <MappingFragment StoreEntitySet="tb_Software">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Fabricante" ColumnName="Fabricante" />
+                <ScalarProperty Name="NomeSoftware" ColumnName="NomeSoftware" />
+                <ScalarProperty Name="ID_Software" ColumnName="ID_Software" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -238,6 +247,21 @@
                 <ScalarProperty Name="FuncaoUsuario" ColumnName="FuncaoUsuario" />
                 <ScalarProperty Name="NomeUsuario" ColumnName="NomeUsuario" />
                 <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Chaves">
+            <EntityTypeMapping TypeName="ProjectGCA.tb_Chaves">
+              <MappingFragment StoreEntitySet="tb_Chaves">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PrazoDeLicenca" ColumnName="PrazoDeLicenca" />
+                <ScalarProperty Name="ChaveDeAtivacao" ColumnName="ChaveDeAtivacao" />
+                <ScalarProperty Name="Software" ColumnName="Software" />
+                <ScalarProperty Name="ID_Software" ColumnName="ID_Software" />
+                <ScalarProperty Name="TipoDeLicenca" ColumnName="TipoDeLicenca" />
+                <ScalarProperty Name="DataDeCompra" ColumnName="DataDeCompra" />
+                <ScalarProperty Name="ID_ChaveAtivacao" ColumnName="ID_ChaveAtivacao" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

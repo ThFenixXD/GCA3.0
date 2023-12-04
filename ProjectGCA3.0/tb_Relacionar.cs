@@ -15,13 +15,13 @@ namespace ProjectGCA3._0
     public partial class tb_Relacionar
     {
         public int ID_Relacionar { get; set; }
+        public Nullable<int> ID_Usuario { get; set; }
         public string UsuarioRelacionar { get; set; }
+        public Nullable<int> ID_Maquina { get; set; }
         public string MaquinaRelacionar { get; set; }
+        public Nullable<int> ID_ChaveAtivacao { get; set; }
         public string SoftwareRelacionar { get; set; }
         public string ChaveAtivacaoRelacionar { get; set; }
-        public Nullable<int> ID_Usuario { get; set; }
-        public Nullable<int> ID_Maquina { get; set; }
-        public Nullable<int> ID_ChaveAtivacao { get; set; }
         public Nullable<int> Deleted { get; set; }
     }
 }

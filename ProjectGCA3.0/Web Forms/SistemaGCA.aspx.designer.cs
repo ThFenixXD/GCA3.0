@@ -67,6 +67,15 @@ namespace ProjectGCA3._0.Web_Forms {
         protected global::System.Web.UI.WebControls.LinkButton lnkSetor;
         
         /// <summary>
+        /// lnkSoftware control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkSoftware;
+        
+        /// <summary>
         /// lnkChaves control.
         /// </summary>
         /// <remarks>
@@ -301,22 +310,22 @@ namespace ProjectGCA3._0.Web_Forms {
         protected global::System.Web.UI.WebControls.Button BtCancelarSetor;
         
         /// <summary>
-        /// PnlCadastroChaveAtivacao control.
+        /// PnlSoftware control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PnlCadastroChaveAtivacao;
+        protected global::System.Web.UI.WebControls.Panel PnlSoftware;
         
         /// <summary>
-        /// lbChaveAtivacaoTitulo control.
+        /// lbSoftwareTitulo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbChaveAtivacaoTitulo;
+        protected global::System.Web.UI.WebControls.Label lbSoftwareTitulo;
         
         /// <summary>
         /// lbNomeSoftware control.
@@ -355,31 +364,85 @@ namespace ProjectGCA3._0.Web_Forms {
         protected global::System.Web.UI.WebControls.TextBox txtFabricante;
         
         /// <summary>
-        /// lbTipoLicenca control.
+        /// BtSalvarSoftware control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbTipoLicenca;
+        protected global::System.Web.UI.WebControls.Button BtSalvarSoftware;
         
         /// <summary>
-        /// ddlTipolicenca control.
+        /// BtCancelarSoftware control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipolicenca;
+        protected global::System.Web.UI.WebControls.Button BtCancelarSoftware;
         
         /// <summary>
-        /// lbPrazoLicenca control.
+        /// PnlCadastroChaveAtivacao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbPrazoLicenca;
+        protected global::System.Web.UI.WebControls.Panel PnlCadastroChaveAtivacao;
+        
+        /// <summary>
+        /// lbChaveAtivacaoTitulo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbChaveAtivacaoTitulo;
+        
+        /// <summary>
+        /// lbDataDeCompra control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbDataDeCompra;
+        
+        /// <summary>
+        /// txtDataDeCompra control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDataDeCompra;
+        
+        /// <summary>
+        /// lbTipoDeLicenca control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbTipoDeLicenca;
+        
+        /// <summary>
+        /// DdlTipoDeLicenca control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlTipoDeLicenca;
+        
+        /// <summary>
+        /// lbPrazoDeLicenca control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbPrazoDeLicenca;
         
         /// <summary>
         /// txtPrazoLicenca control.
@@ -389,6 +452,24 @@ namespace ProjectGCA3._0.Web_Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrazoLicenca;
+        
+        /// <summary>
+        /// lbSoftware control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbSoftware;
+        
+        /// <summary>
+        /// txtSoftware control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSoftware;
         
         /// <summary>
         /// lbChaveAtivacao control.

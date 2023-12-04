@@ -16,8 +16,6 @@ namespace ProjectGCA3._0
     {
         public int ID_Setor { get; set; }
         public string NomeSetor { get; set; }
-        public Nullable<int> ID_Maquina { get; set; }
-        public Nullable<int> ID_Usuario { get; set; }
         public Nullable<int> Deleted { get; set; }
     }
 }

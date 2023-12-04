@@ -46,6 +46,12 @@
                 </asp:LinkButton>
             </div>
             <div class="opcoes-item col-12 col-md-12 col-sm-12">
+                <asp:LinkButton ID="lnkSoftware" CssClass="LnkButton border d-flex m-auto" runat="server" OnClick="lnkSoftware_Click">
+                    <span class="icon"><i class="bi bi-key"></i></span>
+                    <span class="txt-link text-start">Software</span>
+                </asp:LinkButton>
+            </div>
+            <div class="opcoes-item col-12 col-md-12 col-sm-12">
                 <asp:LinkButton ID="lnkChaves" CssClass="LnkButton border d-flex m-auto" runat="server" OnClick="lnkChaves_Click">
                     <span class="icon"><i class="bi bi-key"></i></span>
                     <span class="txt-link text-start">Chaves de Ativação</span>
@@ -129,10 +135,10 @@
         </section>
     </asp:Panel>
 
-    <asp:Panel ID="PnlCadastroChaveAtivacao" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
+    <asp:Panel ID="PnlSoftware" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
         <section class="row">
             <div class="col-12 col-md-12 col-sm-12 mb-5 text-uppercase">
-                <asp:Label ID="lbChaveAtivacaoTitulo" CssClass="LbTitulo" runat="server" Text="Chave de Ativação"></asp:Label>
+                <asp:Label ID="lbSoftwareTitulo" CssClass="LbTitulo" runat="server" Text="Software"></asp:Label>
             </div>
             <div class="DivTextBlock row d-flex m-auto gap-2">
                 <div class="row">
@@ -143,13 +149,36 @@
                     <asp:Label ID="lbFabricante" CssClass="lbTextBlock col-4 col-md-4 col-sm-4" runat="server" Text="Fabricante"></asp:Label>
                     <asp:TextBox ID="txtFabricante" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:TextBox>
                 </div>
+                <div class="row p-0 m-0 gap-3 justify-content-end">
+                    <div class="col-7 col-md-7 col-sm-7"></div>
+                    <asp:Button ID="BtSalvarSoftware" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Salvar" OnClick="BtSalvarSoftware_Click" />
+                    <asp:Button ID="BtCancelarSoftware" CssClass="col-2 col-md-2 col-sm-2" runat="server" Text="Cancelar" OnClick="BtCancelarSoftware_Click" />
+                </div>
+            </div>
+        </section>
+    </asp:Panel>
+
+    <asp:Panel ID="PnlCadastroChaveAtivacao" CssClass="Pnl col-9 col-md-9 col-sm-9 d-flex align-items-center justify-content-center text-center" runat="server" Visible="false">
+        <section class="row">
+            <div class="col-12 col-md-12 col-sm-12 mb-5 text-uppercase">
+                <asp:Label ID="lbChaveAtivacaoTitulo" CssClass="LbTitulo" runat="server" Text="Chave de Ativação"></asp:Label>
+            </div>
+            <div class="DivTextBlock row d-flex m-auto gap-2">
                 <div class="row">
-                    <asp:Label ID="lbTipoLicenca" CssClass="lbTextBlock col-4 col-md-4 col-sm-4 p-0" runat="server" Text="Tipo de Licença"></asp:Label>
-                    <asp:DropDownList ID="ddlTipolicenca" CssClass="col-8 col-md-8 col-sm-8 text-center" runat="server" DataTextField="TipoLicenca" DataValueField="ID_TipoLicenca"></asp:DropDownList>
+                    <asp:Label ID="lbDataDeCompra" CssClass="lbTextBlock col-4 col-md-4 col-sm-4 p-0" runat="server" Text="Data de Compra"></asp:Label>
+                    <asp:TextBox ID="txtDataDeCompra" CssClass="col-8 col-md-8 col-sm-8 text-center" runat="server" DataTextField="TipoLicenca" DataValueField="ID_TipoLicenca"></asp:TextBox>
                 </div>
                 <div class="row">
-                    <asp:Label ID="lbPrazoLicenca" CssClass="lbTextBlock col-4 col-md-4 col-sm-4 p-0" runat="server" Text="Prazo de Licença"></asp:Label>
+                    <asp:Label ID="lbTipoDeLicenca" CssClass="lbTextBlock col-4 col-md-4 col-sm-4 p-0" runat="server" Text="Tipo de Licença"></asp:Label>
+                    <asp:DropDownList ID="DdlTipoDeLicenca" CssClass="col-8 col-md-8 col-sm-8" runat="server" DataTextField="TipoDeLicenca" DataValueField="ID_TipoLicenca"></asp:DropDownList>
+                </div>
+                <div class="row">
+                    <asp:Label ID="lbPrazoDeLicenca" CssClass="lbTextBlock col-4 col-md-4 col-sm-4 p-0" runat="server" Text="Prazo de Licença"></asp:Label>
                     <asp:TextBox ID="txtPrazoLicenca" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:TextBox>
+                </div>
+                <div class="row">
+                    <asp:Label ID="lbSoftware" CssClass="lbTextBlock col-4 col-md-4 col-sm-4 p-0" runat="server" Text="Software"></asp:Label>
+                    <asp:TextBox ID="txtSoftware" CssClass="col-8 col-md-8 col-sm-8" runat="server"></asp:TextBox>
                 </div>
                 <div class="row">
                     <asp:Label ID="lbChaveAtivacao" CssClass="lbTextBlock col-4 col-md-4 col-sm-4 p-0" runat="server" Text="Chave de Ativação"></asp:Label>

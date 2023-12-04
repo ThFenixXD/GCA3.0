@@ -12,16 +12,11 @@ namespace ProjectGCA3._0
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_Chaves
+    public partial class tb_Software
     {
-        public int ID_ChaveAtivacao { get; set; }
-        public string DataDeCompra { get; set; }
-        public string TipoDeLicenca { get; set; }
-        public Nullable<int> ID_Software { get; set; }
-        public string Software { get; set; }
-        public string ChaveDeAtivacao { get; set; }
-        public string PrazoDeLicenca { get; set; }
-        public Nullable<int> Status { get; set; }
+        public int ID_Software { get; set; }
+        public string NomeSoftware { get; set; }
+        public string Fabricante { get; set; }
         public Nullable<int> Deleted { get; set; }
     }
 }
